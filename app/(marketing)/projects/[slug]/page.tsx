@@ -16,11 +16,17 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
-interface ProjectPageProps {
-  params: {
+// interface ProjectPageProps {
+//   params: {
+//     slug: string;
+//   };
+// }
+
+type ProjectPageProps = {
+  params: Promise<{
     slug: string;
-  };
-}
+  }>;
+};
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
