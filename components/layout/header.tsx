@@ -11,7 +11,7 @@ import { ThemeToggle } from '@/components/shared/theme-toggle';
 const navigation = [
   { name: 'Services', href: '/#services' },
   { name: 'About', href: '/about' },
-  { name: 'Projects', href: '/#projects' },
+  { name: 'Projects', href: '/projects' },
   { name: 'Testimonials', href: '/#testimonials' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -20,13 +20,13 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <Container>
         <nav className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="text-primary-600 dark:text-primary-400 text-2xl font-bold"
+            className="text-2xl font-bold text-primary-600 dark:text-primary-400"
           >
             MAA
           </Link>
@@ -37,13 +37,15 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary-600 dark:hover:text-primary-400 text-sm font-medium transition-colors"
+                className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary-600 dark:hover:text-primary-400"
               >
                 {item.name}
               </Link>
             ))}
             <ThemeToggle />
-            <Button size="sm">Get Started</Button>
+            <Button size="sm">
+              <Link href="/contact">Get Started</Link>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -65,20 +67,20 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="border-border border-t py-4 md:hidden">
+          <div className="border-t border-border py-4 md:hidden">
             <div className="flex flex-col gap-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-foreground/80 text-base font-medium"
+                  className="text-base font-medium text-foreground/80"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
               <Button size="sm" className="w-full">
-                Get Started
+                <Link href="/contact">Get Started</Link>
               </Button>
             </div>
           </div>

@@ -26,14 +26,14 @@ export default function Testimonials({
   const bgClass = variant === 'alternate' ? 'bg-muted/30' : 'bg-background';
 
   return (
-    <section className={`py-20 lg:py-32 ${bgClass}`}>
+    <section id="testimonials" className={`py-20 lg:py-32 ${bgClass}`}>
       <Container>
         {/* Section Header */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
             Client Testimonials
           </h2>
-          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Don't just take our word for it. Here's what our clients have to
             say.
           </p>
@@ -49,13 +49,13 @@ export default function Testimonials({
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <Star
                       key={i}
-                      className="fill-primary-500 text-primary-500 h-5 w-5"
+                      className="h-5 w-5 fill-primary-500 text-primary-500"
                     />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-foreground text-base">
+                <p className="text-base text-foreground">
                   "{testimonial.content}"
                 </p>
               </CardHeader>
@@ -63,14 +63,14 @@ export default function Testimonials({
               <CardContent className="mt-auto">
                 {/* Author */}
                 <div className="flex items-center gap-3">
-                  <div className="bg-primary-100 text-primary-700 dark:bg-primary-950 dark:text-primary-300 flex h-12 w-12 items-center justify-center rounded-full text-lg font-semibold">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 text-lg font-semibold text-primary-700 dark:bg-primary-950 dark:text-primary-300">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="text-foreground font-semibold">
+                    <div className="font-semibold text-foreground">
                       {testimonial.name}
                     </div>
-                    <div className="text-muted-foreground text-sm">
+                    <div className="text-sm text-muted-foreground">
                       {testimonial.role} at {testimonial.company}
                     </div>
                   </div>

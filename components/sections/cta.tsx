@@ -1,7 +1,7 @@
 // components/sections/cta.tsx (Updated with new Button)
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { CalendarCheck } from 'lucide-react';
 import Link from 'next/link';
 import { ctaData } from '@/data/cta';
 
@@ -15,7 +15,7 @@ export default function CTA({ variant = 'default' }: CTAProps) {
   return (
     <section id="contact" className={`py-20 lg:py-32 ${bgClass}`}>
       <Container>
-        <div className="from-primary-600 to-secondary-600 relative overflow-hidden rounded-3xl bg-gradient-to-br p-8 shadow-2xl lg:p-16">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 to-secondary-600 p-8 shadow-2xl lg:p-16">
           {/* Background pattern */}
           <div className="bg-grid-white/10 absolute inset-0" />
 
@@ -32,8 +32,8 @@ export default function CTA({ variant = 'default' }: CTAProps) {
               <Button
                 size="lg"
                 variant="outline"
-                icon={ArrowRight}
-                className="text-primary-600 border-white bg-white hover:border-white hover:bg-white/90"
+                // icon={ArrowRight}
+                className="border-white bg-white text-primary-600 hover:border-white hover:bg-white/90"
                 asChild
               >
                 <Link href={ctaData.buttons.primary.href}>
@@ -44,9 +44,9 @@ export default function CTA({ variant = 'default' }: CTAProps) {
               <Button
                 size="lg"
                 variant="ghost"
-                icon={Calendar}
-                className="text-white hover:bg-white/10"
-                asChild
+                icon={CalendarCheck}
+                className="text-white hover:bg-white/10 hover:text-white"
+                // asChild
               >
                 <a
                   href={ctaData.buttons.secondary.href}
