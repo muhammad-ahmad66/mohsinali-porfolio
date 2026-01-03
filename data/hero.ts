@@ -2,28 +2,20 @@
 export const heroData = {
   badge: {
     icon: 'Sparkles',
-    text: 'Available for new projects',
+    text: 'Entrepreneur & Startup Builder Since 2015',
   },
-  headline: 'Digital Solutions That',
-  highlightedText: 'Drive Results',
+  headline: 'Building Intelligent Systems That',
+  highlightedText: 'Drive Results.',
   description:
-    'Expert in web development, AI automation, blockchain, and custom software solutions. Building scalable digital products that solve real business challenges.',
+    'AI Engineer and SaaS builder creating automation systems, trading algorithms, and digital platforms that drive measurable growth.',
   cta: {
     primary: {
-      text: 'View My Work',
+      text: 'Explore My Work',
       href: '/#projects',
     },
     secondary: {
-      text: 'Get in Touch',
-      href: '/#contact',
+      text: 'Book a Strategy Call',
+      href: 'https://calendly.com/setupmybusinessusa/book-a-call',
     },
-  },
-  clients: {
-    heading: 'TRUSTED BY LEADING BRANDS',
-    logos: [
-      { name: 'KRY', display: 'KRY' },
-      { name: 'YUKIO', display: 'YUKIO' },
-      { name: 'MoeNumbers', display: 'MoeNumbers' },
-    ],
   },
 };
