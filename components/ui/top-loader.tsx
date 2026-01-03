@@ -1,11 +1,11 @@
 // components/ui/top-loader.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export function TopLoader() {
+function TopLoaderContent() {
   const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const pathname = usePathname();
@@ -53,5 +53,13 @@ export function TopLoader() {
         />
       )}
     </AnimatePresence>
+  );
+}
+
+export function TopLoader() {
+  return (
+    <Suspense fallback={null}>
+      <TopLoaderContent />
+    </Suspense>
   );
 }
