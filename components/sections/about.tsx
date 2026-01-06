@@ -177,7 +177,7 @@ export default function About({ variant = 'default' }: AboutProps) {
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Button
                         size="lg"
-                        className="group flex-1 gap-2 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
+                        className="group flex-1 gap-2 bg-primary-600 py-2 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600"
                         asChild
                       >
                         <a
@@ -194,7 +194,7 @@ export default function About({ variant = 'default' }: AboutProps) {
                       <Button
                         size="lg"
                         variant="outline"
-                        className="group flex-1 gap-2 border-2 border-white/40 bg-white/20 text-foreground backdrop-blur-sm hover:bg-white/30 dark:border-white/20 dark:bg-white/10 dark:hover:bg-white/20"
+                        className="group flex-1 gap-2 border-2 border-white/40 bg-white/20 py-2 text-foreground backdrop-blur-sm hover:bg-white/30 dark:border-white/20 dark:bg-white/10 dark:hover:bg-white/20"
                         asChild
                       >
                         <Link href="/contact">

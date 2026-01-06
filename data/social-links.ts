@@ -1,11 +1,11 @@
 // data/social-links.ts
-import { Github, Linkedin, Twitter, Mail, Calendar } from 'lucide-react';
+import { Linkedin, Twitter, Mail, Calendar, Instagram } from 'lucide-react';
 
 export const socialLinks = [
   {
-    name: 'GitHub',
-    href: 'https://github.com/mohsinaliaziz',
-    icon: Github,
+    name: 'Instagram',
+    href: 'https://www.instagram.com/mohsinaliaziz',
+    icon: Instagram,
   },
   {
     name: 'LinkedIn',
@@ -19,7 +19,7 @@ export const socialLinks = [
   },
   {
     name: 'Email',
-    href: 'mailto:hello@mohsinaliaziz.com',
+    href: 'mailto:contact@mohsinaliaziz.com',
     icon: Mail,
   },
   {

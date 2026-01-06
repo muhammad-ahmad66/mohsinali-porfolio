@@ -2,10 +2,10 @@
 export const heroData = {
   badge: {
     icon: 'Sparkles',
-    text: 'Entrepreneur & Startup Builder Since 2015',
+    text: 'Mohsin Ali Aziz',
   },
-  headline: 'Building Intelligent Systems That',
-  highlightedText: 'Drive Results.',
+  headline: 'Designing and engineering premium digital solutions for',
+  highlightedText: 'global businesses.',
   description:
     'AI Engineer and SaaS builder creating automation systems, trading algorithms, and digital platforms that drive measurable growth.',
   cta: {
@@ -14,7 +14,7 @@ export const heroData = {
       href: '/#projects',
     },
     secondary: {
-      text: 'Book a Strategy Call',
+      text: 'Discuss Your Project',
       href: 'https://calendly.com/setupmybusinessusa/book-a-call',
     },
   },

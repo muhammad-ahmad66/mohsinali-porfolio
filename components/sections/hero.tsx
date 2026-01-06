@@ -1,200 +1,253 @@
-// // components/sections/hero.tsx (Updated with new Button)
-// import { Container } from '@/components/ui/container';
-// import { Button } from '@/components/ui/button';
-// import { ArrowRight, Sparkles } from 'lucide-react';
-// import Link from 'next/link';
-// import { heroData } from '@/data/hero';
-
-// export default function Hero() {
-//   return (
-//     <section className="from-primary-50 via-background to-secondary-50 dark:from-primary-950/20 dark:via-background dark:to-secondary-950/20 relative overflow-hidden bg-gradient-to-br py-20 lg:py-32">
-//       <Container>
-//         <div className="mx-auto max-w-4xl text-center">
-//           {/* Badge */}
-//           <div className="border-border bg-card mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm shadow-sm">
-//             <Sparkles className="text-primary-500 h-4 w-4" />
-//             <span className="text-muted-foreground">{heroData.badge.text}</span>
-//           </div>
-
-//           {/* Main heading */}
-//           <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
-//             {heroData.headline}{' '}
-//             <span className="from-primary-600 to-secondary-600 bg-gradient-to-r bg-clip-text text-transparent">
-//               {heroData.highlightedText}
-//             </span>
-//           </h1>
-
-//           {/* Description */}
-//           <p className="text-muted-foreground mb-10 text-lg sm:text-xl lg:text-2xl">
-//             {heroData.description}
-//           </p>
-
-//           {/* CTA Buttons - UPDATED */}
-//           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-//             <Button size="lg" asChild>
-//               <Link href="/projects">
-//                 View My Work <ArrowRight className="h-5 w-5" />
-//               </Link>
-//             </Button>
-//             <Button size="lg" variant="outline" asChild>
-//               <Link href={heroData.cta.secondary.href}>
-//                 {heroData.cta.secondary.text}
-//               </Link>
-//             </Button>
-//           </div>
-
-//           {/* Client Logos */}
-//           <div className="mt-16">
-//             <p className="text-muted-foreground mb-6 text-sm font-medium">
-//               {heroData.clients.heading}
-//             </p>
-//             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0">
-//               {heroData.clients.logos.map((client) => (
-//                 <div
-//                   key={client.name}
-//                   className="text-foreground/40 text-2xl font-bold"
-//                 >
-//                   {client.display}
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// }
-
 // components/sections/hero.tsx
+'use client';
+
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
+import { heroData } from '@/data/hero';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Sparkles,
-  Users,
-  Trophy,
-  Clock,
-  TrendingUp,
+  CheckCircle2,
+  Globe,
+  UserCircle,
+  BadgeCheck,
 } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { heroData } from '@/data/hero';
+import Image from 'next/image';
 
-const stats = [
-  { icon: Users, value: '500+', label: 'Happy Clients' },
-  { icon: Trophy, value: '98%', label: 'Success Rate' },
-  { icon: Clock, value: '24/7', label: 'Support' },
-  { icon: TrendingUp, value: '50%', label: 'Growth' },
+const capabilities = [
+  'Custom Software Development',
+  'Automation & Workflow Systems',
+  'Web Platform Engineering',
+  'AI Tools & Intelligent Systems',
 ];
-
-// Simple inline Card components
-const Card = ({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => (
-  <div
-    className={`border-border bg-card rounded-lg border shadow-sm ${className}`}
-  >
-    {children}
-  </div>
-);
-
-const CardContent = ({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => <div className={`p-4 ${className}`}>{children}</div>;
 
 export default function Hero() {
   return (
-    <section className="from-primary-50 via-background to-secondary-50 dark:from-primary-950/20 dark:via-background dark:to-secondary-950/20 relative overflow-hidden bg-gradient-to-br py-20 lg:py-32">
-      {/* Background Effects */}
-      <div className="dark:bg-grid-white/10 bg-grid-black/10 bg-grid-pattern absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]" />
-      <div className="from-background/50 to-background/30 absolute inset-0 bg-gradient-to-t via-transparent" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary-50/30 via-background to-secondary-50/30 py-12 dark:from-primary-950/10 dark:via-background dark:to-secondary-950/10 sm:py-16 lg:py-32">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 -z-10">
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]" />
 
-      {/* Animated Orbs */}
-      <div className="from-primary-500/20 to-secondary-500/20 absolute -left-20 -top-20 h-80 w-80 animate-pulse rounded-full bg-gradient-to-r blur-3xl" />
-      <div className="from-primary-500/20 to-accent-500/20 absolute -bottom-20 -right-20 h-80 w-80 animate-pulse rounded-full bg-gradient-to-r blur-3xl" />
+        {/* Gradient orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="absolute left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-gradient-to-r from-primary-400/20 to-secondary-400/20 blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: 2,
+          }}
+          className="absolute bottom-0 right-1/4 h-[500px] w-[500px] rounded-full bg-gradient-to-r from-secondary-400/20 to-primary-400/20 blur-3xl"
+        />
+      </div>
 
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-20">
           {/* Left Column - Content */}
-          <div className="select-text">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10"
+          >
             {/* Badge */}
-            <div className="border-border bg-card mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm shadow-sm">
-              <Sparkles className="text-primary h-4 w-4" />
-              <span className="text-muted-foreground">
-                {heroData.badge.text}
-              </span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 py-1.5 text-xs font-semibold text-primary-700 shadow-sm dark:border-primary-800 dark:bg-primary-950 dark:text-primary-300 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm"
+            >
+              <BadgeCheck className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span>{heroData.badge.text}</span>
+            </motion.div>
 
-            {/* Main heading */}
-            <h1 className="mb-6 select-text text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              {heroData.headline}{' '}
-              <span className="from-primary-600 to-secondary-600 bg-gradient-to-r bg-clip-text text-transparent">
+            {/* Main Heading */}
+            {/* <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-4 text-2xl font-bold leading-tight tracking-tight sm:mb-6 sm:text-2xl md:text-5xl md:leading-tight"
+            >
+              <span className="bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text font-normal text-transparent">
+                {heroData.headline}
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent">
                 {heroData.highlightedText}
               </span>
-            </h1>
-
+            </motion.h1> */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="md:text-4.5xl mb-6 text-3xl font-light leading-[1.2] tracking-tight sm:text-5xl md:leading-[1.2]"
+            >
+              <span className="text-foreground/60">
+                Designing and engineering premium digital solutions
+              </span>
+              <br />
+              <span className="text-foreground/60">for </span>
+              <span className="relative">
+                <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text font-semibold text-transparent">
+                  global businesses
+                </span>
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-primary-600 to-secondary-600"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  style={{ originX: 0 }}
+                />
+              </span>
+              <span className="text-foreground/60">.</span>
+            </motion.h1>
             {/* Description */}
-            <p className="text-muted-foreground mb-10 select-text text-lg sm:text-xl lg:text-2xl">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mb-6 text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-lg"
+            >
               {heroData.description}
-            </p>
+            </motion.p>
 
-            {/* CTA Buttons - FIXED: Wrap icon in span or remove direct icon child */}
-            <div className="mb-16 flex flex-col items-start gap-4 sm:flex-row">
-              <Button size="lg" asChild className="relative z-10">
-                <Link href="/projects">
-                  <span className="flex items-center">
-                    View My Work
-                    <ArrowRight className="ml-2 h-5 w-5" />
+            {/* Capabilities List */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mb-6 grid gap-2 sm:mb-8 sm:grid-cols-2 sm:gap-3"
+            >
+              {capabilities.map((capability, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  className="flex items-center gap-2"
+                >
+                  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-primary-600 dark:text-primary-400 sm:h-5 sm:w-5" />
+                  <span className="text-xs font-medium text-foreground sm:text-sm">
+                    {capability}
                   </span>
-                </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex flex-col gap-3 sm:flex-row sm:gap-4"
+            >
+              <Button size="lg" className="shadow-sm" asChild>
+                <Link href="/contact">{heroData.cta.secondary.text}</Link>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
+                className="group gap-2 shadow-lg"
                 asChild
-                className="relative z-10"
               >
-                <Link href={heroData.cta.secondary.href}>
-                  {heroData.cta.secondary.text}
+                <Link href="/#projects">
+                  View My Work
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
                 </Link>
               </Button>
-            </div>
+            </motion.div>
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {stats.map((StatIcon, index) => (
-                <Card
-                  key={index}
-                  className="hover:border-primary/50 group select-text transition-all duration-300 hover:shadow-md"
-                >
-                  <CardContent className="p-4">
-                    <div className="bg-primary/10 mb-2 inline-flex items-center justify-center rounded-lg p-2">
-                      <StatIcon.icon className="text-primary h-5 w-5" />
-                    </div>
-                    <div className="text-2xl font-bold">{StatIcon.value}</div>
-                    <div className="text-muted-foreground text-sm">
-                      {StatIcon.label}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+            {/* Trust Indicators - Fully Responsive */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-8 flex flex-col gap-4 border-t border-border pt-6 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6 sm:pt-8"
+            >
+              {/* Clients */}
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2 sm:-space-x-3">
+                  <div className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-background sm:h-10 sm:w-10">
+                    <Image
+                      src="/images/clients/man-1.webp"
+                      alt="Client"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-background sm:h-10 sm:w-10">
+                    <Image
+                      src="/images/clients/man-2.webp"
+                      alt="Client"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-background sm:h-10 sm:w-10">
+                    <Image
+                      src="/images/clients/man-3.webp"
+                      alt="Client"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="text-xs sm:text-sm">
+                  <div className="font-semibold text-foreground">
+                    500+ Clients
+                  </div>
+                  <div className="text-muted-foreground">Worldwide</div>
+                </div>
+              </div>
 
-          {/* Right Column - Image with Fixed Height */}
-          <div className="relative">
+              {/* Divider - Hidden on mobile */}
+              <div className="hidden h-8 w-px bg-border sm:block" />
+
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-950 sm:h-10 sm:w-10">
+                  <Globe className="h-4 w-4 text-primary-600 dark:text-primary-400 sm:h-5 sm:w-5" />
+                </div>
+                <div className="text-xs sm:text-sm">
+                  <div className="font-semibold text-foreground">
+                    Trusted by clients in
+                  </div>
+                  <div className="text-muted-foreground">
+                    USA, UK, Canada & Europe
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="relative order-first lg:order-last"
+          >
             {/* Image Container with Fixed Height */}
-            <div className="relative h-[400px] lg:h-[500px]">
-              {/* Image with overflow-hidden */}
-              <div className="absolute inset-0 overflow-hidden rounded-2xl">
+            <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[550px] xl:h-[600px]">
+              {/* Main Image */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl border-2 border-border shadow-2xl sm:rounded-3xl">
                 <Image
                   src="/images/workspace.webp"
                   alt="Professional Workspace"
@@ -205,25 +258,56 @@ export default function Hero() {
                 />
 
                 {/* Gradient Overlay */}
-                <div className="from-primary/20 to-secondary/20 absolute inset-0 bg-gradient-to-tr opacity-30" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 via-transparent to-secondary-600/20" />
               </div>
 
-              {/* Floating Badge - OUTSIDE the overflow-hidden container */}
-              <div className="absolute -left-4 -top-4 z-20">
-                <div className="from-primary to-secondary text-primary-foreground flex items-center gap-2 rounded-full bg-gradient-to-r px-4 py-2 text-sm font-semibold shadow-lg">
-                  <Sparkles className="h-4 w-4" />
-                  <span>Premium Experience</span>
+              {/* Floating Badge - Top Left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                whileHover={{ scale: 1.05 }}
+                className="absolute -left-2 -top-2 z-20 sm:-left-4 sm:-top-4"
+              >
+                <div className="flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1.5 shadow-xl backdrop-blur-sm sm:gap-2 sm:px-4 sm:py-2">
+                  <Sparkles className="h-3 w-3 text-primary-600 dark:text-primary-400 sm:h-4 sm:w-4" />
+                  <span className="text-xs font-semibold text-foreground sm:text-sm">
+                    Premium Experience
+                  </span>
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Floating Badge - Bottom Right */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                whileHover={{ scale: 1.05 }}
+                className="absolute -bottom-2 -right-2 z-20 sm:-bottom-4 sm:-right-4"
+              >
+                <div className="rounded-xl border border-border bg-card p-2.5 shadow-xl backdrop-blur-sm sm:rounded-2xl sm:p-4">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 sm:h-12 sm:w-12 sm:rounded-xl">
+                      <CheckCircle2 className="h-4 w-4 text-white sm:h-6 sm:w-6" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-foreground sm:text-sm">
+                        100% Quality
+                      </div>
+                      <div className="text-[10px] text-muted-foreground sm:text-xs">
+                        Guaranteed
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Bottom decorative blur */}
+              <div className="absolute -bottom-4 left-1/2 h-24 w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary-500/30 to-secondary-500/30 blur-3xl sm:-bottom-8 sm:h-32" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 animate-bounce lg:block">
-        <div className="via-primary h-8 w-px bg-gradient-to-b from-transparent to-transparent" />
-      </div>
     </section>
   );
 }
