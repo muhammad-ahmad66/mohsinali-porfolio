@@ -2,6 +2,8 @@
 export const entrepreneurData = {
   title: 'Entrepreneur & Startup Builder Since 2015',
   tagline: 'Building ventures that scale, innovate, and transform industries',
+  shortDescription:
+    'I’ve been building and scaling technology ventures for nearly a decade. Since 2015, I’ve launched, managed, and grown multiple startups across AI, automation, SaaS, telecom, and trading systems — focusing on engineering systems that scale and endure.',
   description:
     'I have been building and growing startups for nearly a decade. Since 2015, I have launched, managed, and scaled multiple ventures across technology, automation, AI, SaaS, telecom, trading systems, and community-driven platforms. My entrepreneurial journey includes founding brands like SetupMyBusiness, MoeNumbers, Yukio.cc, FantomVIPSignals, Whip Algo, and Moe Organics — along with helping many other startups structure their systems, growth strategy, and technology foundation.',
 
@@ -10,19 +12,22 @@ export const entrepreneurData = {
       id: '1',
       icon: 'rocket',
       title: '15+ Startups Built or Scaled',
-      description: 'Successfully launched and scaled ventures since 2015',
+      description:
+        'Successfully launched and scaled technology ventures since 2015.',
     },
     {
       id: '2',
       icon: 'building',
       title: 'Founder of Multiple Brands',
-      description: 'SMB Services, MoeNumbers, Yukio.cc, KRY Clients & More',
+      description:
+        'SMB Services, MoeNumbers, Yukio.cc, KRY Clients, and other technology ventures.',
     },
     {
       id: '3',
       icon: 'users',
       title: 'Startup Advisory & Guidance',
-      description: 'Advised & guided multiple early-stage startups to success',
+      description:
+        'Strategic guidance and technical leadership for early-stage and growth-focused startups.',
     },
     {
       id: '4',

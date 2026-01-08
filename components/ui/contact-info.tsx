@@ -1,16 +1,23 @@
 // components/contact/contact-info.tsx
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, Calendar, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, Calendar, Linkedin, Instagram, Link } from 'lucide-react';
+import { socialLinks } from '@/data/social-links';
+import { formatPhoneNumber } from '@/lib/utils';
+import { SocialIconsGroup } from './social-icons-group';
+import { SocialIcon } from './social-icon';
 
 export function ContactInfo() {
+  const phoneNumber = socialLinks.find((link) => link.name === 'Phone')?.href;
+  const formattedPhoneNumber = formatPhoneNumber(phoneNumber || '');
+
   return (
     <div className="space-y-6">
       {/* Email Card */}
-      <Card className="transition-all hover:shadow-lg">
+      <Card className="transition-all">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-lg">
-            <div className="bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400 flex h-10 w-10 items-center justify-center rounded-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
               <Mail className="h-5 w-5" />
             </div>
             Email
@@ -18,24 +25,27 @@ export function ContactInfo() {
         </CardHeader>
         <CardContent>
           <a
-            href="mailto:hello@mohsinaliaziz.com"
-            className="text-foreground hover:text-primary-600 text-base font-medium transition-colors"
+            href={socialLinks.find((link) => link.name === 'Email')?.href}
+            className="text-base font-medium text-foreground transition-colors hover:text-primary-600"
           >
-            hello@mohsinaliaziz.com
+            {socialLinks
+              .find((link) => link.name === 'Email')
+              ?.href.replace('mailto:', '')}
           </a>
-          <p className="text-muted-foreground mt-2 text-sm">
-            Available Monday to Friday
+          <p className="mt-2 text-sm text-muted-foreground">
+            Primary contact for new projects, collaborations, and consulting
+            inquiries.
             <br />
-            8:00 AM - 6:30 PM CST
+            Response within 24–48 hours (business days).
           </p>
         </CardContent>
       </Card>
 
       {/* Phone Card */}
-      <Card className="transition-all hover:shadow-lg">
+      <Card className="transition-all">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-lg">
-            <div className="bg-secondary-100 text-secondary-600 dark:bg-secondary-950 dark:text-secondary-400 flex h-10 w-10 items-center justify-center rounded-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary-100 text-secondary-600 dark:bg-secondary-950 dark:text-secondary-400">
               <Phone className="h-5 w-5" />
             </div>
             Phone
@@ -44,68 +54,95 @@ export function ContactInfo() {
         <CardContent>
           <a
             href="tel:+16313868474"
-            className="text-foreground hover:text-primary-600 text-base font-medium transition-colors"
+            className="text-base font-medium text-foreground transition-colors hover:text-primary-600"
           >
-            +1 (631) 386-8474
+            {formattedPhoneNumber}
           </a>
-          <p className="text-muted-foreground mt-2 text-sm">
-            US residents only
+          {/* <p className="mt-2 text-sm text-muted-foreground">
+            US-based inquiries.
             <br />
-            International: WhatsApp
+            International clients: WhatsApp or scheduled call.
+          </p> */}
+          <p className="mt-2 text-sm text-muted-foreground">
+            US-based inquiries.
+            <br />
+            International clients:{' '}
+            <a
+              href={`https://wa.me/${phoneNumber?.replace(/\D/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              WhatsApp
+            </a>{' '}
+            or{' '}
+            <a
+              href={
+                socialLinks.find((link) => link.name === 'Schedule Call')?.href
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              scheduled call
+            </a>
+            .
           </p>
         </CardContent>
       </Card>
 
       {/* Calendar Card */}
-      <Card className="border-primary-200 from-primary-50 to-secondary-50 dark:border-primary-800 dark:from-primary-950/50 dark:to-secondary-950/50 border-2 bg-gradient-to-br transition-all hover:shadow-lg">
+      <Card className="border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-secondary-50 transition-all hover:shadow-lg dark:border-primary-800 dark:from-primary-950/50 dark:to-secondary-950/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-lg">
-            <div className="bg-primary-600 flex h-10 w-10 items-center justify-center rounded-lg text-white">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white">
               <Calendar className="h-5 w-5" />
             </div>
             Schedule a Call
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-muted-foreground mb-4 text-sm">
-            Book a free 30-minute consultation to discuss your project and
-            explore how we can help you achieve your goals.
+          <p className="mb-4 text-sm text-muted-foreground">
+            Book a complimentary 30-minute consultation to discuss your project,
+            goals, and next steps.
           </p>
           <Button variant="primary" className="w-full" asChild>
             <a
-              href="https://calendly.com/setupmybusinessusa/book-a-call"
+              href={
+                socialLinks.find((link) => link.name === 'Schedule Call')?.href
+              }
               target="_blank"
               rel="noopener noreferrer"
             >
-              Book Now
+              Schedule a Call
             </a>
           </Button>
         </CardContent>
       </Card>
 
       {/* Social Links Card */}
-      <Card className="transition-all hover:shadow-lg">
+      <Card className="transition-all">
         <CardHeader>
           <CardTitle className="text-lg">Connect With Us</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex gap-3">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-border bg-card hover:border-primary-500 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-950 flex h-12 w-12 items-center justify-center rounded-lg border transition-all"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-border bg-card hover:border-primary-500 hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-950 flex h-12 w-12 items-center justify-center rounded-lg border transition-all"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
+          <div className="flex gap-2">
+            <SocialIcon
+              icon={Linkedin}
+              href={socialLinks.find((link) => link.name === 'LinkedIn')?.href!}
+              label="LinkedIn"
+              variant="with-label"
+              size="md"
+            />
+            <SocialIcon
+              icon={Instagram}
+              href={
+                socialLinks.find((link) => link.name === 'Instagram')?.href!
+              }
+              label="Instagram"
+              variant="with-label"
+              size="md"
+            />
           </div>
         </CardContent>
       </Card>

@@ -1,7 +1,7 @@
 // app/(marketing)/projects/[slug]/not-found.tsx
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Search } from 'lucide-react';
+import { ArrowLeft, Search, Home } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ProjectNotFound() {
@@ -34,7 +34,7 @@ export default function ProjectNotFound() {
             <Button size="lg" icon={ArrowLeft} asChild>
               <Link href="/projects">View All Projects</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" icon={Home} asChild>
               <Link href="/">Go Home</Link>
             </Button>
           </div>

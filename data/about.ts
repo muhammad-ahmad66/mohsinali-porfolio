@@ -3,9 +3,9 @@ export const aboutData = {
   badge: 'About Me',
   headline: 'Building Intelligent Systems That Drive Results',
   paragraphs: [
-    'I’m Mohsin Ali Aziz — an AI Engineer, Automation Specialist, SaaS Developer, and founder behind multiple technology-driven ventures.',
-    'I’ve spent the last decade building systems that combine AI, automation, software engineering, and growth strategy to help businesses scale.',
-    'My journey spans USA and Pakistan, where I completed my bachelor’s in Computer Systems Engineering (AI focus) while simultaneously building SMB Services, MoeNumbers, Yukio.cc, multiple AI/ML projects, and trading automation systems used by global traders.',
+    'I’m Mohsin Ali Aziz — an AI Engineer, Automation Specialist, and SaaS Builder focused on designing intelligent systems that scale.',
+    'Over the past decade, I’ve built automation platforms, trading systems, and software products that combine AI, data, and engineering to drive measurable business outcomes.',
+    'My work spans the USA and Pakistan, where I completed my Bachelor’s in Computer Systems Engineering (AI focus) while building multiple technology ventures including SMB Services, MoeNumbers, Yukio.cc, and advanced AI-driven trading and automation systems used by global clients.',
   ],
   highlights: [
     'Entrepreneur & startup builder since 2015',

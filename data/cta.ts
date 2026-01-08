@@ -1,23 +1,25 @@
+import { socialLinks } from './social-links';
+
 // data/cta.ts
 export const ctaData = {
-  headline: 'Ready to Start Your Project?',
+  headline: 'Ready to Build Something Scalable?',
   description:
-    "Let's discuss how I can help bring your ideas to life. Book a free consultation call to explore possibilities for your business.",
+    'Let’s discuss how intelligent systems, automation, and engineering-led solutions can support your next stage of growth.',
   buttons: {
     primary: {
-      text: 'Get Started',
-      href: '/contact',
-      icon: 'ArrowRight',
+      text: 'Schedule a Call',
+      href: `${socialLinks.find((link) => link.name === 'Schedule Call')?.href}`,
+      icon: 'Calendar',
     },
     secondary: {
-      text: 'Book a Free Call',
-      href: 'https://calendly.com/setupmybusinessusa/book-a-call',
-      icon: 'Calendar',
+      text: 'Get Started',
+      href: '/contact',
+      icon: 'ArrowUpRight',
       external: true,
     },
   },
   contact: {
-    email: 'hello@mohsinaliaziz.com',
-    phone: '+1 (631) 386-8474',
+    email: `${socialLinks.find((link) => link.name === 'Email')?.href}`,
+    phone: `${socialLinks.find((link) => link.name === 'Phone')?.href}`,
   },
 };

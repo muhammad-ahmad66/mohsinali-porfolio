@@ -149,6 +149,9 @@ export default function TechStack({ variant = 'default' }: TechStackProps) {
             </motion.div>
           ))}
         </div>
+        <p className="mt-8 text-center text-sm text-muted-foreground">
+          Tools evolve — system design principles don’t.
+        </p>
       </Container>
     </section>
   );

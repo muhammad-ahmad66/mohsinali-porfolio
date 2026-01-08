@@ -35,7 +35,7 @@ export const services = [
     icon: TrendingUp,
     title: 'Trading Strategy & Algo Bot Development',
     shortDescription:
-      'Professional algorithmic trading systems for real markets.',
+      'Institutional-grade algorithmic trading systems for live markets.',
     description:
       'I build advanced trading strategies, indicators, and fully automated trading bots designed for consistency, risk control, and performance.',
     deliverables: [
@@ -73,7 +73,8 @@ export const services = [
     slug: 'web-custom-software',
     icon: Code,
     title: 'Web & Custom Software',
-    shortDescription: 'High-performance web platforms and internal systems.',
+    shortDescription:
+      'High-performance web platforms and custom internal systems.',
     description:
       'I build premium web platforms and custom software tailored to business needs, optimized for performance, scalability, and maintainability.',
     deliverables: [

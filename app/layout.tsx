@@ -62,6 +62,7 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { TopLoader } from '@/components/ui/top-loader';
 import './globals.css';
+import { ToastProvider } from '@/components/providers/toast-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -108,8 +109,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TopLoader />
-          {children}
+          <ToastProvider>
+            <TopLoader />
+            {children}
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>

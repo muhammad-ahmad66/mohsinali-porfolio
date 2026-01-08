@@ -1,54 +1,30 @@
-// // components/sections/stats.tsx
-// import { Container } from '@/components/ui/container';
-// import { stats } from '@/data/stats';
-
-// interface StatsProps {
-//   variant?: 'default' | 'alternate';
-// }
-
-// export default function Stats({ variant = 'default' }: StatsProps) {
-//   const bgClass = variant === 'alternate' ? 'bg-muted/30' : 'bg-background';
-
-//   return (
-//     <section className={`py-20 lg:py-32 ${bgClass}`}>
-//       <Container>
-//         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-//           {stats.map((stat) => (
-//             <div key={stat.id} className="text-center">
-//               <div className="text-primary-600 dark:text-primary-400 mb-2 text-4xl font-bold lg:text-5xl">
-//                 {stat.value}
-//               </div>
-//               <div className="text-foreground mb-1 text-lg font-semibold">
-//                 {stat.label}
-//               </div>
-//               <div className="text-muted-foreground text-sm">
-//                 {stat.description}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// }
-
 // components/sections/stats.tsx
 'use client';
 
 import { Container } from '@/components/ui/container';
 import { stats } from '@/data/stats';
 import { motion } from 'framer-motion';
-import { TrendingUp, Users, Award, Globe, Sparkles } from 'lucide-react';
+import {
+  TrendingUp,
+  Award,
+  Globe,
+  Sparkles,
+  History,
+  CircleCheck,
+  Handshake,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface StatsProps {
   variant?: 'default' | 'alternate';
 }
 
-const iconMap: Record<string, any> = {
-  trending: TrendingUp,
-  users: Users,
-  award: Award,
+// import { History, CircleCheck, Handshake, Globe } from 'lucide-react';
+
+export const iconMap: Record<string, any> = {
+  history: History,
+  'check-circle': CircleCheck,
+  handshake: Handshake,
   globe: Globe,
 };
 
@@ -79,8 +55,8 @@ function useCountUp(end: number, duration: number = 2000, start: number = 0) {
 
 function StatCard({ stat, index }: { stat: any; index: number }) {
   const Icon = iconMap[stat.icon] || TrendingUp;
-  const numericValue = parseInt(stat.value.replace(/\D/g, ''));
-  const suffix = stat.value.replace(/[0-9]/g, '');
+  const numericValue = parseInt(stat.value?.replace(/\D/g, ''));
+  const suffix = stat.value?.replace(/[0-9]/g, '');
   const [count, startAnimation] = useCountUp(numericValue);
 
   return (
@@ -124,8 +100,8 @@ function StatCard({ stat, index }: { stat: any; index: number }) {
         {/* Number with counter animation */}
         <div className="mb-3">
           <span className="bg-gradient-to-br from-primary-600 via-primary-500 to-secondary-600 bg-clip-text text-5xl font-black tracking-tight text-transparent lg:text-6xl">
-            {count}
-            {suffix}
+            {count ? count : ''}
+            {suffix ? suffix : ''}
           </span>
         </div>
 
@@ -133,6 +109,8 @@ function StatCard({ stat, index }: { stat: any; index: number }) {
         <h3 className="mb-2 text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary-600 dark:group-hover:text-primary-400">
           {stat.label}
         </h3>
+
+        {/* <Rocket className="absolute left-4 top-4 h-6 w-6 text-primary-300 opacity-20" /> */}
 
         {/* Description */}
         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -177,12 +155,13 @@ export default function Stats({ variant = 'default' }: StatsProps) {
           </div>
 
           <h2 className="mb-4 bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl lg:text-5xl">
-            Our Impact & Milestones
+            Engineering Impact at Scale
           </h2>
 
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Empowering businesses globally with scalable, performance-driven
-            digital solutions tailored for long-term growth.
+            Delivering measurable impact through intelligent systems,
+            automation, and scalable software solutions built for long-term
+            growth.
           </p>
         </motion.div>
 
@@ -202,10 +181,11 @@ export default function Stats({ variant = 'default' }: StatsProps) {
           className="mt-16 flex flex-wrap items-center justify-center gap-3 border-t border-border pt-12 md:gap-8"
         >
           {[
-            '100% Satisfaction',
-            'ISO Certified',
-            '24/7 Support',
-            'Money Back Guarantee',
+            'Long-Term Client Partnerships',
+            'Production-Grade Systems',
+            'Security & Performance Focused',
+            'Engineering-First Approach',
+            '24/7 System Support',
           ].map((badge, index) => (
             <div
               key={index}

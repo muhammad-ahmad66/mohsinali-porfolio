@@ -63,7 +63,7 @@ export default function EntrepreneurMini({
           </h2>
 
           <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
-            {entrepreneurData.description.slice(0, 200)}...
+            {entrepreneurData.shortDescription}
           </p>
         </motion.div>
 
@@ -104,12 +104,24 @@ export default function EntrepreneurMini({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           viewport={{ once: true }}
-          className="flex justify-center"
+          className="justify-scratch flex flex-col md:flex-row md:justify-center"
         >
           <Button size="lg" className="gap-2 shadow-lg" asChild>
             <Link href="/entrepreneur">
               View Full Journey
               <ArrowRight className="h-5 w-5" />
+            </Link>
+          </Button>
+
+          <Button
+            size="lg"
+            className="mt-4 gap-2 shadow-lg md:ml-4 md:mt-0"
+            asChild
+            variant="ghost"
+          >
+            <Link target="_" href="http://setupmybusiness.net/">
+              Setup My Business
+              {/* <ArrowRight className="h-5 w-5" /> */}
             </Link>
           </Button>
         </motion.div>

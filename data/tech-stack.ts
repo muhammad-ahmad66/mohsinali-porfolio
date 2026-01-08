@@ -16,7 +16,8 @@ export const techStack: TechCategory[] = [
   {
     id: 'ai-ml',
     title: 'AI/ML',
-    description: 'Machine Learning & Artificial Intelligence',
+    description:
+      'Machine learning systems designed for real-world production use.',
     color: 'from-purple-500 to-pink-500',
     technologies: [
       { name: 'Python', icon: 'python' },
@@ -29,8 +30,8 @@ export const techStack: TechCategory[] = [
   },
   {
     id: 'automation',
-    title: 'Automation',
-    description: 'Process Automation & Integration',
+    title: 'Process Automation',
+    description: 'Reliable automation pipelines and system integrations.',
     color: 'from-blue-500 to-cyan-500',
     technologies: [
       { name: 'Selenium', icon: 'selenium' },
@@ -42,7 +43,7 @@ export const techStack: TechCategory[] = [
   {
     id: 'web-dev',
     title: 'Web Development',
-    description: 'Modern Web Technologies',
+    description: 'Modern, scalable web platforms built for performance.',
     color: 'from-green-500 to-emerald-500',
     technologies: [
       { name: 'React', icon: 'react' },
@@ -54,8 +55,8 @@ export const techStack: TechCategory[] = [
   },
   {
     id: 'bots',
-    title: 'Bots & Automation',
-    description: 'Bot Development & Integration',
+    title: 'Bot Systems',
+    description: 'Custom bot architectures for messaging platforms and APIs.',
     color: 'from-orange-500 to-red-500',
     technologies: [
       { name: 'Discord.py', icon: 'discord' },
@@ -66,7 +67,7 @@ export const techStack: TechCategory[] = [
   {
     id: 'trading',
     title: 'Trading Systems',
-    description: 'Algorithmic Trading & Analysis',
+    description: 'Algorithmic trading systems and quantitative analysis tools.',
     color: 'from-yellow-500 to-amber-500',
     technologies: [
       { name: 'Pine Script v5', icon: 'pine' },
@@ -78,7 +79,7 @@ export const techStack: TechCategory[] = [
   {
     id: 'cloud-devops',
     title: 'Cloud/DevOps',
-    description: 'Infrastructure & Deployment',
+    description: 'Infrastructure designed for stability, security, and scale.',
     color: 'from-indigo-500 to-purple-500',
     technologies: [
       { name: 'Linux', icon: 'linux' },

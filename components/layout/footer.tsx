@@ -1,7 +1,14 @@
 // components/layout/footer.tsx
 import Link from 'next/link';
 import { Container } from '@/components/ui/container';
-import { Linkedin, Instagram, Phone, ExternalLink, Mail } from 'lucide-react';
+import {
+  Linkedin,
+  Instagram,
+  Phone,
+  ExternalLink,
+  Mail,
+  Calendar1Icon,
+} from 'lucide-react';
 import { Button } from '../ui/button';
 import { ctaData } from '@/data/cta';
 import { socialLinks } from '@/data/social-links';
@@ -11,6 +18,7 @@ const quickLinks = [
   { name: 'About', href: '/about' },
   { name: 'Services', href: '/#services' },
   { name: 'Projects', href: '/projects' },
+  { name: 'Featured Work', href: 'featured-work' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -35,9 +43,17 @@ export default function Footer() {
               >
                 Mohsin Ali Aziz
               </Link>
-              <p className="mt-4 text-sm text-muted-foreground">
+              {/* <p className="mt-4 text-sm text-muted-foreground">
                 Building premium digital solutions with a focus on innovation,
                 quality, and measurable results.
+              </p> */}
+
+              <p className="mt-4 rounded-sm border-l-4 border-primary-600 bg-background p-2 text-sm leading-snug text-muted-foreground">
+                <span className="italic">
+                  Professional, fast, and extremely detail-oriented.
+                </span>
+                <br />
+                <span className="">— SaaS Founder, USA</span>
               </p>
 
               <Button
@@ -45,7 +61,7 @@ export default function Footer() {
                 variant="link"
                 icon={ExternalLink}
                 iconPosition="right"
-                className="border-white bg-white p-0 text-primary-600 hover:border-white hover:bg-white/90"
+                className="mt-2 border-white p-0 text-primary-600 hover:border-white"
                 // asChild
               >
                 <Link href={ctaData.buttons.primary.href}>
@@ -101,7 +117,21 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-              <div className="mt-4 flex gap-4">
+              <Button
+                variant="link"
+                icon={Calendar1Icon}
+                className="mt-2 p-0 text-primary-600 hover:border-white"
+                asChild
+              >
+                <Link
+                  href={ctaData.buttons.secondary.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Schedule a Call
+                </Link>
+              </Button>
+              <div className="mt-1 flex gap-4 border-t border-border pt-3">
                 <a
                   href={linkedinLink?.href}
                   target="_blank"
@@ -126,6 +156,9 @@ export default function Footer() {
           <div className="mt-8 border-t border-border pt-8 text-center">
             <p className="text-sm text-muted-foreground">
               © {currentYear} Mohsin Ali Aziz. All rights reserved.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Mohsin Ali Aziz — Digital Systems & Software Engineering
             </p>
           </div>
         </div>

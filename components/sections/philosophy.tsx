@@ -159,7 +159,7 @@ export default function Philosophy({ variant = 'default' }: PhilosophyProps) {
                 <blockquote className="space-y-4">
                   <p className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-5xl">
                     <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-                      I believe in building{' '}
+                      I build{' '}
                     </span>
                     <span className="relative inline-block bg-gradient-to-br from-primary-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent">
                       systems that scale

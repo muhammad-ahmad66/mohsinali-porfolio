@@ -41,3 +41,26 @@ export function slugify(text: string): string {
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+/**
+ * Formats phone numbers like:
+ * +16313868474  -> (631) 386-8474
+ * 6313868474    -> (631) 386-8474
+ */
+export function formatPhoneNumber(input: string): string {
+  // Strip everything except digits
+  const digits = input.replace(/\D/g, '');
+
+  // Remove leading country code "1" if present
+  const normalized =
+    digits.length === 11 && digits.startsWith('1') ? digits.slice(1) : digits;
+
+  // If not 10 digits, just return original cleaned number
+  if (normalized.length !== 10) return input;
+
+  const area = normalized.slice(0, 3);
+  const prefix = normalized.slice(3, 6);
+  const line = normalized.slice(6);
+
+  return `(${area}) ${prefix}-${line}`;
+}

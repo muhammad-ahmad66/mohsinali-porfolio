@@ -9,16 +9,21 @@ import { Select } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Send, Loader2 } from 'lucide-react';
+import { useToast } from '@/components/providers/toast-provider';
 
 const projectTypes = [
+  { value: 'custom-software', label: 'Custom Software Development' },
+  { value: 'automation', label: 'Automation & Internal Tools' },
+  { value: 'saas', label: 'Web Platform / SaaS' },
+  { value: 'ai', label: 'AI Tools & Integrations' },
   { value: 'web', label: 'Web & Software Development' },
-  { value: 'automation', label: 'Discord & Telegram Automation' },
+  { value: 'discord-telegram', label: 'Discord & Telegram Automation' },
   { value: 'marketing', label: 'Marketing & Ads Management' },
   { value: 'design', label: 'Branding & Design' },
   { value: 'seo', label: 'SEO & Content' },
   { value: 'video', label: 'Video Production' },
   { value: 'blockchain', label: 'Blockchain / Web3' },
-  { value: 'ai', label: 'AI & Automation' },
+  { value: 'consulting', label: 'Consulting / Strategy' },
   { value: 'other', label: 'Other' },
 ];
 
@@ -27,7 +32,7 @@ const budgetRanges = [
   { value: '3k-5k', label: '$3,000 – $5,000' },
   { value: '5k-10k', label: '$5,000 – $10,000' },
   { value: '10k+', label: '$10,000+ (Custom Project)' },
-  { value: 'unsure', label: 'Not Sure Yet' },
+  { value: 'unsure', label: 'Not sure yet' },
 ];
 
 interface FormData {
@@ -46,6 +51,7 @@ interface FormErrors {
 }
 
 export function ContactForm() {
+  const { toast } = useToast();
   const [formData, setFormData] = React.useState<FormData>({
     name: '',
     email: '',
@@ -56,7 +62,6 @@ export function ContactForm() {
 
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [submitSuccess, setSubmitSuccess] = React.useState(false);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -89,19 +94,32 @@ export function ContactForm() {
     e.preventDefault();
 
     if (!validateForm()) {
+      toast({
+        title: 'Please check your form',
+        description: 'Some fields require your attention.',
+        type: 'error',
+      });
       return;
     }
 
     setIsSubmitting(true);
 
-    // Simulate API call
     try {
+      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       // Here you would typically send the form data to your API
       console.log('Form submitted:', formData);
 
-      setSubmitSuccess(true);
+      // Success toast
+      toast({
+        title: 'Thanks for reaching out!',
+        description: "I'll review your message and follow up shortly.",
+        type: 'success',
+        duration: 6000,
+      });
+
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -109,10 +127,15 @@ export function ContactForm() {
         budget: '',
         message: '',
       });
-
-      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       console.error('Error submitting form:', error);
+
+      // Error toast
+      toast({
+        title: 'Something went wrong',
+        description: 'Please try again or contact us directly.',
+        type: 'error',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -122,10 +145,12 @@ export function ContactForm() {
     <Card className="shadow-xl">
       <CardHeader>
         <CardTitle className="text-2xl">Send a Message</CardTitle>
-        <p className="text-muted-foreground text-sm">
-          Fill out the form below and we'll get back to you within 24 hours.
+        <p className="text-sm text-muted-foreground">
+          Share a few details about your project and I'll get back to you within
+          24–48 hours.
         </p>
       </CardHeader>
+
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name and Email Row */}
@@ -205,7 +230,7 @@ export function ContactForm() {
             </Label>
             <Textarea
               id="message"
-              placeholder="Tell us about your project, goals, and requirements..."
+              placeholder="Briefly describe your project, goals, timeline, and any specific requirements."
               rows={6}
               value={formData.message}
               onChange={(e) => {
@@ -218,32 +243,32 @@ export function ContactForm() {
             />
           </div>
 
-          {/* Success Message */}
-          {submitSuccess && (
-            <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-800 dark:border-green-800 dark:bg-green-950 dark:text-green-200">
-              ✓ Message sent successfully! We'll get back to you soon.
-            </div>
-          )}
-
           {/* Submit Button */}
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full gap-2"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="h-5 w-5 animate-spin" />
-                Sending...
-              </>
-            ) : (
-              <>
-                <Send className="h-5 w-5" />
-                Send Message
-              </>
-            )}
-          </Button>
+          <div className="space-y-3">
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full gap-2"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="h-5 w-5" />
+                  Send Inquiry
+                </>
+              )}
+            </Button>
+
+            {/* Trust Line */}
+            <p className="text-center text-xs text-muted-foreground">
+              Working with clients across the USA, UK, Canada & Europe.
+            </p>
+          </div>
         </form>
       </CardContent>
     </Card>

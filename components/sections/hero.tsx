@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { socialLinks } from '@/data/social-links';
 
 const capabilities = [
   'Custom Software Development',
@@ -101,13 +102,13 @@ export default function Hero() {
               className="md:text-4.5xl mb-6 text-3xl font-light leading-[1.2] tracking-tight sm:text-5xl md:leading-[1.2]"
             >
               <span className="text-foreground/60">
-                Designing and engineering premium digital solutions
+                Engineering Intelligent Systems That
               </span>
               <br />
               <span className="text-foreground/60">for </span>
               <span className="relative">
                 <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text font-semibold text-transparent">
-                  global businesses
+                  Drive Results.
                 </span>
                 <motion.span
                   className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-primary-600 to-secondary-600"
@@ -117,7 +118,7 @@ export default function Hero() {
                   style={{ originX: 0 }}
                 />
               </span>
-              <span className="text-foreground/60">.</span>
+              {/* <span className="text-foreground/60">.</span> */}
             </motion.h1>
             {/* Description */}
             <motion.p
@@ -126,7 +127,10 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mb-6 text-base leading-relaxed text-muted-foreground sm:mb-8 sm:text-lg"
             >
-              {heroData.description}
+              {/* {heroData.description} */}
+              AI Engineer and SaaS builder designing automation systems,
+              intelligent platforms, and data-driven solutions that scale
+              businesses.
             </motion.p>
 
             {/* Capabilities List */}
@@ -160,7 +164,14 @@ export default function Hero() {
               className="flex flex-col gap-3 sm:flex-row sm:gap-4"
             >
               <Button size="lg" className="shadow-sm" asChild>
-                <Link href="/contact">{heroData.cta.secondary.text}</Link>
+                <Link
+                  href={
+                    socialLinks.find((link) => link.name == 'Schedule Call')
+                      ?.href || '#'
+                  }
+                >
+                  Schedule a Strategy Call
+                </Link>
               </Button>
               <Button
                 size="lg"
@@ -272,7 +283,7 @@ export default function Hero() {
                 <div className="flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1.5 shadow-xl backdrop-blur-sm sm:gap-2 sm:px-4 sm:py-2">
                   <Sparkles className="h-3 w-3 text-primary-600 dark:text-primary-400 sm:h-4 sm:w-4" />
                   <span className="text-xs font-semibold text-foreground sm:text-sm">
-                    Premium Experience
+                    AI Engineer & Startup Builder Since 2015{' '}
                   </span>
                 </div>
               </motion.div>

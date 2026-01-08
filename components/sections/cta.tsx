@@ -1,9 +1,10 @@
 // components/sections/cta.tsx (Updated with new Button)
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { CalendarCheck } from 'lucide-react';
+import { ArrowRight, CalendarCheck } from 'lucide-react';
 import Link from 'next/link';
 import { ctaData } from '@/data/cta';
+import { formatPhoneNumber } from '@/lib/utils';
 
 interface CTAProps {
   variant?: 'default' | 'alternate';
@@ -44,7 +45,8 @@ export default function CTA({ variant = 'default' }: CTAProps) {
               <Button
                 size="lg"
                 variant="ghost"
-                icon={CalendarCheck}
+                icon={ArrowRight}
+                iconPosition="right"
                 className="text-white hover:bg-white/10 hover:text-white"
                 // asChild
               >
@@ -61,16 +63,16 @@ export default function CTA({ variant = 'default' }: CTAProps) {
             {/* Contact Info */}
             <div className="mt-12 flex flex-col items-center justify-center gap-6 border-t border-white/20 pt-8 sm:flex-row sm:gap-12">
               <a
-                href={`mailto:${ctaData.contact.email}`}
+                href={ctaData.contact.email}
                 className="text-white/90 transition hover:text-white"
               >
-                {ctaData.contact.email}
+                {ctaData.contact.email.replace('mailto:', '')}
               </a>
               <a
                 href={`tel:${ctaData.contact.phone.replace(/\s/g, '')}`}
                 className="text-white/90 transition hover:text-white"
               >
-                {ctaData.contact.phone}
+                {formatPhoneNumber(ctaData.contact.phone.replace('tel:', ''))}
               </a>
             </div>
           </div>
