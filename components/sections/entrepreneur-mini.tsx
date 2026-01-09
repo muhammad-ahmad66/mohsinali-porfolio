@@ -104,7 +104,7 @@ export default function EntrepreneurMini({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           viewport={{ once: true }}
-          className="justify-scratch flex flex-col md:flex-row md:justify-center"
+          className="flex flex-col items-center justify-center"
         >
           <Button size="lg" className="gap-2 shadow-lg" asChild>
             <Link href="/entrepreneur">
@@ -113,17 +113,25 @@ export default function EntrepreneurMini({
             </Link>
           </Button>
 
-          <Button
-            size="lg"
-            className="mt-4 gap-2 shadow-lg md:ml-4 md:mt-0"
-            asChild
-            variant="ghost"
-          >
-            <Link target="_" href="http://setupmybusiness.net/">
-              Setup My Business
-              {/* <ArrowRight className="h-5 w-5" /> */}
-            </Link>
-          </Button>
+          <div className="mt-2 flex flex-col items-center justify-center gap-0 rounded-lg p-6 text-center md:flex-row md:gap-6">
+            <h3 className="text-lg font-normal text-muted-foreground">
+              {' '}
+              Looking for business, automation, or software services?
+            </h3>
+            <Button
+              size="lg"
+              className="p-0"
+              // asChild
+              variant="link"
+              icon={ArrowRight}
+              iconPosition="right"
+            >
+              <Link target="_" href="http://setupmybusiness.net/">
+                Visit SMB Services
+                {/* <ArrowRight className="h-5 w-5" /> */}
+              </Link>
+            </Button>
+          </div>
         </motion.div>
       </Container>
     </section>
