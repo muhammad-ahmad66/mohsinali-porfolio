@@ -1,7 +1,7 @@
-// components/sections/cta.tsx (Updated with new Button)
+// components/sections/cta.tsx (Improved Background)
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CalendarCheck } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { ctaData } from '@/data/cta';
 import { formatPhoneNumber } from '@/lib/utils';
@@ -16,9 +16,15 @@ export default function CTA({ variant = 'default' }: CTAProps) {
   return (
     <section id="contact" className={`py-20 lg:py-32 ${bgClass}`}>
       <Container>
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 to-secondary-600 p-8 shadow-2xl lg:p-16">
-          {/* Background pattern */}
-          <div className="bg-grid-white/10 absolute inset-0" />
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-600 p-8 shadow-2xl lg:p-16">
+          {/* Animated Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff22_1px,transparent_1px),linear-gradient(to_bottom,#ffffff22_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          </div>
+
+          {/* Glowing Orbs */}
+          <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-secondary-400/20 blur-3xl" />
 
           <div className="relative z-10 mx-auto max-w-3xl text-center text-white">
             <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -33,7 +39,6 @@ export default function CTA({ variant = 'default' }: CTAProps) {
               <Button
                 size="lg"
                 variant="outline"
-                // icon={ArrowRight}
                 className="border-white bg-white text-primary-600 hover:border-white hover:bg-white/90"
                 asChild
               >
@@ -48,7 +53,7 @@ export default function CTA({ variant = 'default' }: CTAProps) {
                 icon={ArrowRight}
                 iconPosition="right"
                 className="text-white hover:bg-white/10 hover:text-white"
-                // asChild
+                asChild
               >
                 <a
                   href={ctaData.buttons.secondary.href}

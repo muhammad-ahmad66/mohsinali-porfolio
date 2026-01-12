@@ -39,4 +39,9 @@ export const socialLinks = [
     href: 'tel:+16313868474',
     icon: Phone,
   },
+  {
+    name: 'Whatsapp',
+    href: 'https://wa.me/16313868474',
+    icon: Phone,
+  },
 ];

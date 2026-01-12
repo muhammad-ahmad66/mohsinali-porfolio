@@ -91,7 +91,8 @@ export default function TechStack({ variant = 'default' }: TechStackProps) {
           </h2>
 
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Cutting-edge technologies and tools powering innovative solutions
+            A carefully selected technology stack used to build scalable,
+            secure, and production-grade systems.{' '}
           </p>
         </motion.div>
 

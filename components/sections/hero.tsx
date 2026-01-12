@@ -12,6 +12,7 @@ import {
   Globe,
   UserCircle,
   BadgeCheck,
+  Target,
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -299,14 +300,15 @@ export default function Hero() {
                 <div className="rounded-xl border border-border bg-card p-2.5 shadow-xl backdrop-blur-sm sm:rounded-2xl sm:p-4">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 sm:h-12 sm:w-12 sm:rounded-xl">
-                      <CheckCircle2 className="h-4 w-4 text-white sm:h-6 sm:w-6" />
+                      <Target className="h-4 w-4 text-white sm:h-6 sm:w-6" />
                     </div>
                     <div>
                       <div className="text-xs font-bold text-foreground sm:text-sm">
-                        100% Quality
+                        Engineering With Precision.
                       </div>
                       <div className="text-[10px] text-muted-foreground sm:text-xs">
-                        Guaranteed
+                        A disciplined, data-informed approach to building
+                        scalable systems.
                       </div>
                     </div>
                   </div>

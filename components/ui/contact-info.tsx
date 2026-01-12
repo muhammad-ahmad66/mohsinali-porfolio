@@ -1,5 +1,11 @@
 // components/contact/contact-info.tsx
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Calendar, Linkedin, Instagram, Link } from 'lucide-react';
 import { socialLinks } from '@/data/social-links';
@@ -123,7 +129,10 @@ export function ContactInfo() {
       {/* Social Links Card */}
       <Card className="transition-all">
         <CardHeader>
-          <CardTitle className="text-lg">Connect With Us</CardTitle>
+          <CardTitle className="text-lg">Professional Profiles</CardTitle>
+          <CardDescription>
+            Professional updates and selected work.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex gap-2">

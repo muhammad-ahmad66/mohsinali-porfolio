@@ -37,7 +37,7 @@ export const ventures: Venture[] = [
   {
     id: 'fantom-whip',
     year: '2024',
-    name: 'FantomVIPSignals / Whip Algo',
+    name: 'Whip Algo',
     description:
       'Advanced algorithmic trading signals and automated trading systems',
     category: 'Trading',
@@ -45,7 +45,7 @@ export const ventures: Venture[] = [
   {
     id: 'moe-organics',
     year: '2025',
-    name: 'Moe Organics & AI Health Systems',
+    name: 'AI Health Systems',
     description: 'AI-powered health and wellness solutions',
     category: 'Health Tech',
   },

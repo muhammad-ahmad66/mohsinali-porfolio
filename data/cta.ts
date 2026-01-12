@@ -2,9 +2,9 @@ import { socialLinks } from './social-links';
 
 // data/cta.ts
 export const ctaData = {
-  headline: 'Ready to Build Something Scalable?',
+  headline: 'Ready to Build Scalable Systems?',
   description:
-    'Let’s discuss how intelligent systems, automation, and engineering-led solutions can support your next stage of growth.',
+    'Let’s discuss how intelligent systems, automation, and strategy can support your next stage of growth.',
   buttons: {
     primary: {
       text: 'Schedule a Call',
@@ -12,7 +12,7 @@ export const ctaData = {
       icon: 'Calendar',
     },
     secondary: {
-      text: 'Get Started',
+      text: 'Send an Inquiry',
       href: '/contact',
       icon: 'ArrowUpRight',
       external: true,

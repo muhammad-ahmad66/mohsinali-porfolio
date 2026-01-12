@@ -13,6 +13,7 @@ import {
   Building2,
   Users,
   Layers,
+  ExternalLink,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -98,38 +99,36 @@ export default function EntrepreneurMini({
           })}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center"
+          className="flex flex-col items-center justify-center gap-6"
         >
-          <Button size="lg" className="gap-2 shadow-lg" asChild>
-            <Link href="/entrepreneur">
-              View Full Journey
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+          <Button size="lg" icon={ArrowRight} asChild>
+            <Link href="/entrepreneur">View Full Journey</Link>
           </Button>
 
-          <div className="mt-2 flex flex-col items-center justify-center gap-0 rounded-lg p-6 text-center md:flex-row md:gap-6">
-            <h3 className="text-lg font-normal text-muted-foreground">
-              {' '}
-              Looking for business, automation, or software services?
-            </h3>
-            <Button
-              size="lg"
-              className="p-0"
-              // asChild
-              variant="link"
-              icon={ArrowRight}
-              iconPosition="right"
-            >
-              <Link target="_" href="http://setupmybusiness.net/">
+          {/* SMB Services CTA */}
+          <div className="flex flex-col items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm md:flex-row md:gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="mb-1 text-lg font-semibold text-foreground">
+                Need Business or Automation Solutions?
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Explore enterprise-grade services at SMB Enterprises
+              </p>
+            </div>
+            <Button size="lg" variant="outline" icon={ExternalLink} asChild>
+              <a
+                href="http://setupmybusiness.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Visit SMB Services
-                {/* <ArrowRight className="h-5 w-5" /> */}
-              </Link>
+              </a>
             </Button>
           </div>
         </motion.div>

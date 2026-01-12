@@ -8,23 +8,26 @@ import {
   ExternalLink,
   Mail,
   Calendar1Icon,
+  MessageCircle,
 } from 'lucide-react';
+
 import { Button } from '../ui/button';
 import { ctaData } from '@/data/cta';
 import { socialLinks } from '@/data/social-links';
 
 const quickLinks = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
   { name: 'Services', href: '/#services' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Featured Work', href: 'featured-work' },
+  { name: 'About', href: '/about' },
+  // { name: 'Projects', href: '/projects' },
+  { name: 'Featured Work', href: '/projects' },
   { name: 'Contact', href: '/contact' },
 ];
 
 const emailLink = socialLinks.find((link) => link.name === 'Email');
 const instaLink = socialLinks.find((link) => link.name === 'Instagram');
 const linkedinLink = socialLinks.find((link) => link.name === 'LinkedIn');
+const whatsapp = socialLinks.find((link) => link.name === 'Whatsapp');
 const EmailIcon = emailLink?.icon;
 
 export default function Footer() {
@@ -48,8 +51,8 @@ export default function Footer() {
                 quality, and measurable results.
               </p> */}
 
-              <p className="mt-4 rounded-sm border-l-4 border-primary-600 bg-background p-2 text-sm leading-snug text-muted-foreground">
-                <span className="italic">
+              <p className="mt-4 rounded-sm border border-l-4 border-primary-600 bg-background p-2 text-sm leading-snug text-muted-foreground">
+                <span className="italic leading-relaxed">
                   Professional, fast, and extremely detail-oriented.
                 </span>
                 <br />
@@ -147,6 +150,14 @@ export default function Footer() {
                   className="text-muted-foreground transition-colors hover:text-primary-600 dark:hover:text-primary-400"
                 >
                   <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href={whatsapp?.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground transition-colors hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  <MessageCircle className="h-5 w-5" />
                 </a>
               </div>
             </div>
