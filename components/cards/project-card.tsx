@@ -54,19 +54,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <div className="grid grid-cols-2 gap-4 text-center">
             {project.results.slice(0, 2).map((result, idx) => {
-              const match = result.match(/^([\d+%x]+)/);
-              const number = match ? match[1] : '';
-              const text = result.replace(/^[\d+%x]+\s*/, '');
-
               return (
                 <div
                   key={idx}
                   className="rounded-lg bg-white/10 p-3 backdrop-blur-md"
                 >
                   <div className="mb-1 text-2xl font-bold text-white">
-                    {number}
+                    {result.stat}
                   </div>
-                  <div className="text-xs text-white/80">{text}</div>
+                  <div className="text-xs text-white/80">{result.label}</div>
                 </div>
               );
             })}
@@ -104,7 +100,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               key={idx}
               className="rounded-md bg-primary-50 px-2.5 py-1 text-xs font-medium text-primary-700 dark:bg-primary-950/50 dark:text-primary-300"
             >
-              {tech}
+              {tech.name}
             </span>
           ))}
           {project.technologies.length > 3 && (
