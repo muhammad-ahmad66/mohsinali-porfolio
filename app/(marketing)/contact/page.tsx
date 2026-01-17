@@ -4,6 +4,7 @@ import { ContactForm } from '@/components/forms/contact-form';
 import { ContactInfo } from '@/components/ui/contact-info';
 import { Sparkles } from 'lucide-react';
 import type { Metadata } from 'next';
+import { ContactCardModal } from '@/components/ui/contact-card-modal';
 
 export const metadata: Metadata = {
   title: 'Contact | Mohsin Ali Aziz',
@@ -30,20 +31,22 @@ export default function ContactPage() {
               Get in Touch
             </div>
 
-            {/* <h1 className="from-foreground via-foreground to-foreground/70 mb-6 bg-gradient-to-br bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
-              Let's Work Together
-            </h1> */}
             <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
                 Let's Work Together
               </span>
             </h1>
 
-            <p className="text-lg text-muted-foreground lg:text-xl">
+            <p className="mb-8 text-lg text-muted-foreground lg:text-xl">
               Ready to transform your business with cutting-edge digital
               solutions? Let's discuss your project and explore the
               possibilities.
             </p>
+
+            {/* Digital Card Button */}
+            <div className="flex justify-center">
+              <ContactCardModal />
+            </div>
           </div>
         </Container>
       </section>

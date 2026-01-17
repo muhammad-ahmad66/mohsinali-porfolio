@@ -92,7 +92,7 @@ export const projects = [
     year: '2024',
     client: 'MoeNumbers',
     services: ['Web Development', 'E-commerce', 'Payment Integration'],
-    technologies: ['Next.js', 'Stripe', 'PostgreSQL', 'Twilio API'],
+    technologies: ['Next.js', 'PostgreSQL', 'Stripe', 'Twilio API'],
     url: 'https://moenumbers.com',
     featured: true,
     highlights: [
@@ -106,7 +106,10 @@ export const projects = [
     challenge:
       'MoeNumbers had a complicated purchase flow that resulted in high cart abandonment. The search functionality was slow, and users struggled to find the right phone numbers.',
     solution:
-      'We rebuilt the entire e-commerce experience with a focus on speed and simplicity. Implemented advanced search, one-click purchasing, and instant provisioning to create a seamless buying experience.',
+      'We re-architected the e-commerce flow with a focus on speed, reliability, and conversion efficiency. Implemented advanced search, one-click purchasing, and instant provisioning to create a seamless buying experience.',
+    keyResultsHeading: 'Key Results & Impact',
+    keyResultsDescription:
+      'Measured improvements delivered through system redesign',
     results: [
       '85% reduction in checkout abandonment',
       '220% increase in daily transactions',

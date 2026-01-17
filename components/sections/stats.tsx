@@ -154,7 +154,7 @@ export default function Stats({ variant = 'default' }: StatsProps) {
             Driving Trust Through Innovation
           </div>
 
-          <h2 className="mb-4 bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl lg:text-5xl">
+          <h2 className="mb-4 bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text pb-1 text-3xl font-bold tracking-tight text-transparent sm:text-4xl lg:text-5xl">
             Engineering Impact at Scale
           </h2>
 

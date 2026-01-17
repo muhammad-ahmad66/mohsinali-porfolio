@@ -15,7 +15,9 @@ import { SocialIcon } from './social-icon';
 
 export function ContactInfo() {
   const phoneNumber = socialLinks.find((link) => link.name === 'Phone')?.href;
+  console.log('Raw Phone Number:', phoneNumber);
   const formattedPhoneNumber = formatPhoneNumber(phoneNumber || '');
+  console.log('Formatted Phone Number:', formattedPhoneNumber);
 
   return (
     <div className="space-y-6">

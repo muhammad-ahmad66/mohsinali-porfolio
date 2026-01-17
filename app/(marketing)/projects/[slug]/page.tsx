@@ -15,45 +15,10 @@ import {
   TrendingUp,
   Target,
   Lightbulb,
+  User,
 } from 'lucide-react';
 import CTA from '@/components/sections/cta';
 import type { Metadata } from 'next';
-
-// interface ProjectPageProps {
-//   params: {
-//     slug: string;
-//   };
-// }
-
-// export async function generateStaticParams() {
-//   return projects.map((project) => ({
-//     slug: project.slug,
-//   }));
-// }
-
-// export async function generateMetadata({ params }: ProjectPageProps) {
-//   const { slug } = await params;
-//   const project = projects.find((p) => p.slug === slug);
-
-//   if (!project) {
-//     return {
-//       title: 'Project Not Found',
-//     };
-//   }
-
-//   return {
-//     title: `${project.title} - Case Study | Mohsin Ali Aziz`,
-//     description: project.description,
-//   };
-// }
-
-// export default async function ProjectDetailPage({ params }: ProjectPageProps) {
-//   const { slug } = await params;
-//   const project = projects.find((p) => p.slug === slug);
-
-//   if (!project) {
-//     notFound();
-//   }
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -186,18 +151,22 @@ export default async function ProjectPage({ params }: Props) {
         <Container>
           <div className="mb-12 text-center">
             <h2 className="mb-3 text-2xl font-bold sm:text-3xl">
-              Key Results & Impact
+              {project.keyResultsHeading || 'Key Results & Impact'}
             </h2>
             <p className="text-muted-foreground">
-              Measurable outcomes that drive success
+              {project.keyResultsDescription ||
+                'Measured improvements delivered through system redesign'}
             </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {project.results.map((result, index) => {
-              const match = result.match(/^([\d+%x]+)/);
+              // const match = result.match(/^([\d+%x]+)/);
+              // const number = match ? match[1] : '';
+              // const text = result.replace(/^[\d+%x]+\s*/, '');
+              const match = result.match(/^([\d+%\./x]+)\s*/);
               const number = match ? match[1] : '';
-              const text = result.replace(/^[\d+%x]+\s*/, '');
+              const text = result.replace(/^[\d+%\./x]+\s*/, '');
 
               return (
                 <div
@@ -264,7 +233,7 @@ export default async function ProjectPage({ params }: Props) {
                 </p>
 
                 {/* Technologies */}
-                <div className="mt-8">
+                <div className="mb-8 mt-8">
                   <h3 className="mb-4 text-lg font-semibold">
                     Technologies Used
                   </h3>
@@ -278,6 +247,21 @@ export default async function ProjectPage({ params }: Props) {
                       </span>
                     ))}
                   </div>
+                </div>
+
+                {/* My Role - New Section */}
+                <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400">
+                      <User className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-xl font-bold">My Role</h3>
+                  </div>
+                  <p className="text-base leading-relaxed text-muted-foreground">
+                    System architecture, backend development, performance
+                    optimization, payment integration, and end-to-end
+                    deployment.
+                  </p>
                 </div>
               </div>
             </div>
@@ -313,7 +297,11 @@ export default async function ProjectPage({ params }: Props) {
         </Container>
       </section>
 
-      <CTA variant="alternate" />
+      <CTA
+        variant="alternate"
+        heading="Want Similar Results for Your Platform?"
+        description="Let’s discuss how system design, automation, and performance optimization can deliver measurable outcomes for your product."
+      />
     </>
   );
 }

@@ -562,7 +562,7 @@ export function ContactForm() {
                 </>
               ) : (
                 <>
-                  <Send className="h-5 w-5" />
+                  {/* <Send className="h-5 w-5" /> */}
                   Send Inquiry
                 </>
               )}
