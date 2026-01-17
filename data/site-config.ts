@@ -1,9 +1,9 @@
 // data/site-config.ts
 export const siteConfig = {
   name: 'Mohsin Ali Aziz',
-  title: 'Mohsin Ali Aziz - Digital Solutions & Web Development',
+  title: 'Mohsin Ali Aziz | AI Engineer & Scalable Software Systems',
   description:
-    'Expert in web development, AI automation, blockchain, and custom software solutions. Building scalable digital products that solve real business challenges.',
+    'Mohsin Ali Aziz is an AI Engineer and software systems architect specializing in scalable platforms, automation, SaaS, and performance-driven digital solutions for global businesses.',
   url: 'https://mohsinaliaziz.com',
   author: {
     name: 'Mohsin Ali Aziz',

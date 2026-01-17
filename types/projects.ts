@@ -35,4 +35,7 @@ export interface Project {
   results: ProjectResult[];
   myRoleHeading: string;
   myRoleDescription: string;
+
+  ctaHeading?: string;
+  ctaDescription?: string;
 }

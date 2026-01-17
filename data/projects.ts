@@ -77,6 +77,10 @@ export const projects: Project[] = [
     myRoleHeading: 'My Role',
     myRoleDescription:
       'System architecture, backend development, scalability planning, automation workflows, Discord integrations, performance optimization, and production deployment.',
+
+    ctaHeading: 'Want Similar Results for Your Platform?',
+    ctaDescription:
+      'Let’s discuss how platform architecture, automation, and performance optimization can support sustainable growth and measurable outcomes.',
   },
   {
     id: 'yukio',
@@ -100,16 +104,16 @@ export const projects: Project[] = [
         usedFor: 'Frontend Layer',
       },
       {
+        name: 'TypeScript',
+        usedFor: 'Type Safety',
+      },
+      {
         name: 'Three.js',
         usedFor: '3D Graphics Library',
       },
       {
         name: 'Framer Motion',
         usedFor: 'Animation Library',
-      },
-      {
-        name: 'TypeScript',
-        usedFor: 'Type Safety',
       },
     ],
     url: 'https://yukio.io',
@@ -123,33 +127,36 @@ export const projects: Project[] = [
       'Interactive 3D elements using Three.js',
       'Comprehensive design system implementation',
       'Mobile-first responsive design',
-      '95+ Lighthouse performance score',
+      // '95+ Lighthouse performance score',
     ],
     challenge:
       "YUKIO's previous website didn't reflect their innovative brand. They needed a premium digital experience that showcased their forward-thinking approach while maintaining excellent performance.",
     solution:
-      'We designed and built a futuristic interface with subtle 3D elements, smooth animations, and a comprehensive design system. Every aspect was optimized for performance without compromising visual appeal.',
+      'We engineered a high-performance, futuristic web experience combining motion design, 3D elements, and a scalable frontend architecture. Every interaction was optimized for speed, responsiveness, and visual clarity without compromising performance.',
     results: [
       {
         stat: '95+',
         label: 'Lighthouse Performance Score',
       },
       {
-        stat: '1.2s',
+        stat: '~1.2s',
         label: 'Average Page Load Time',
       },
       {
-        stat: '180%',
-        label: 'Increase in Time on Site',
+        stat: '120%',
+        label: 'Increase in Average Session Duration',
       },
       {
-        stat: '45%',
+        stat: '38%',
         label: 'Increase in Conversion Rate',
       },
     ],
     myRoleHeading: 'My Role',
     myRoleDescription:
       'System architecture, backend development, scalability planning, automation workflows, Discord integrations, performance optimization, and production deployment.',
+    ctaHeading: 'Want a High-Performance Experience Like This?',
+    ctaDescription:
+      'Let’s discuss how performance-focused design and frontend architecture can elevate your product experience.',
   },
   {
     id: 'moenumbers',
@@ -224,5 +231,8 @@ export const projects: Project[] = [
     myRoleHeading: 'My Role',
     myRoleDescription:
       'System architecture, backend development, performance optimization, payment integration, and end-to-end deployment.',
+    ctaHeading: 'Want Similar Results for Your Platform?',
+    ctaDescription:
+      'Let’s discuss how system design, automation, and performance optimization can deliver measurable outcomes for your product.',
   },
 ];

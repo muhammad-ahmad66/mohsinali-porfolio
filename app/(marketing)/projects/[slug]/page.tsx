@@ -293,8 +293,8 @@ export default async function ProjectPage({ params }: Props) {
 
       <CTA
         variant="alternate"
-        heading="Want Similar Results for Your Platform?"
-        description="Let’s discuss how system design, automation, and performance optimization can deliver measurable outcomes for your product."
+        heading={project.ctaHeading}
+        description={project.ctaDescription}
       />
     </>
   );
