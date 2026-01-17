@@ -1,5 +1,6 @@
-// data/projects.ts (Updated with correct image paths)
-export const projects = [
+import { Project } from '@/types/projects';
+
+export const projects: Project[] = [
   {
     id: 'kry-clients',
     slug: 'kry-clients',
@@ -17,7 +18,6 @@ export const projects = [
     client: 'KRY',
     services: ['Web Development', 'UX Design', 'Backend Development'],
     technologies: [
-      // convert to array of objects
       {
         name: 'Next.js',
         usedFor: 'Frontend Layer',
@@ -225,42 +225,4 @@ export const projects = [
     myRoleDescription:
       'System architecture, backend development, performance optimization, payment integration, and end-to-end deployment.',
   },
-  // {
-  //   id: 'trading-dashboard',
-  //   slug: 'trading-dashboard',
-  //   title: 'Crypto Trading Dashboard',
-  //   tagline: 'Real-time Analytics Platform',
-  //   shortDescription:
-  //     'Professional trading dashboard with real-time data, advanced charting, and portfolio management for crypto traders.',
-  //   description:
-  //     'A comprehensive trading dashboard for cryptocurrency traders featuring real-time market data, advanced technical analysis tools, and portfolio tracking across multiple exchanges.',
-  //   image: '📊',
-  //   imageUrl: '/images/projects/trading-dashboard.jpg',
-  //   tags: ['Trading', 'Real-time', 'Analytics', 'Dashboard'],
-  //   category: 'Trading Tools',
-  //   year: '2023',
-  //   client: 'Private Client',
-  //   services: ['Web Development', 'Data Visualization', 'API Integration'],
-  //   technologies: ['React', 'WebSocket', 'TradingView', 'Python', 'Redis'],
-  //   url: null,
-  //   featured: false,
-  //   highlights: [
-  //     'Real-time data from 15+ exchanges',
-  //     'Advanced charting with TradingView',
-  //     'Portfolio tracking and analytics',
-  //     'Custom alert system',
-  //     'Multi-exchange order execution',
-  //     'Sub-second data refresh rates',
-  //   ],
-  //   challenge:
-  //     'Traders needed a unified dashboard to monitor multiple exchanges, track portfolio performance, and execute trades efficiently without switching between platforms.',
-  //   solution:
-  //     'Built a real-time trading dashboard with WebSocket connections to multiple exchanges, integrated TradingView for advanced charting, and implemented a custom alert system for price movements.',
-  //   results: [
-  //     'Sub-second data refresh rates',
-  //     '15+ exchange integrations',
-  //     '10K+ active users',
-  //     '99.9% uptime',
-  //   ],
-  // },
 ];

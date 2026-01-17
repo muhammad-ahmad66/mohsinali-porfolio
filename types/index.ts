@@ -13,28 +13,28 @@ export interface Service {
   category: string;
 }
 
-export interface Project {
-  id: string;
-  slug: string;
-  title: string;
-  tagline: string;
-  shortDescription: string;
-  description: string;
-  image: string;
-  imageUrl: string;
-  tags: string[];
-  category: string;
-  year: string;
-  client: string;
-  services: string[];
-  technologies: string[];
-  url: string | null;
-  featured: boolean;
-  highlights: string[];
-  challenge: string;
-  solution: string;
-  results: string[];
-}
+// export interface Project {
+//   id: string;
+//   slug: string;
+//   title: string;
+//   tagline: string;
+//   shortDescription: string;
+//   description: string;
+//   image: string;
+//   imageUrl: string;
+//   tags: string[];
+//   category: string;
+//   year: string;
+//   client: string;
+//   services: string[];
+//   technologies: string[];
+//   url: string | null;
+//   featured: boolean;
+//   highlights: string[];
+//   challenge: string;
+//   solution: string;
+//   results: string[];
+// }
 
 export interface Testimonial {
   id: string;
