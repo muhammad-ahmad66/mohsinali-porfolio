@@ -16,9 +16,34 @@ export const projects = [
     year: '2024',
     client: 'KRY',
     services: ['Web Development', 'UX Design', 'Backend Development'],
-    technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Redis', 'Discord API'],
+    technologies: [
+      // convert to array of objects
+      {
+        name: 'Next.js',
+        usedFor: 'Frontend Layer',
+      },
+      {
+        name: 'Node.js',
+        usedFor: 'Application Layer',
+      },
+      {
+        name: 'PostgreSQL',
+        usedFor: 'Primary Data Layer',
+      },
+      {
+        name: 'Redis',
+        usedFor: 'Caching and Real-time Layer',
+      },
+      {
+        name: 'Discord API',
+        usedFor: 'External Integration Layer',
+      },
+    ],
     url: 'https://kryclients.com',
     featured: true,
+    keyResultsHeading: 'Key Results & Impact',
+    keyResultsDescription:
+      'Measured improvements delivered through platform re-architecture',
     highlights: [
       'Full UX/UI redesign for modern gaming aesthetic',
       'Scalable backend supporting 50K+ concurrent users',
@@ -30,13 +55,28 @@ export const projects = [
     challenge:
       "KRY Clients was experiencing rapid growth but their existing platform couldn't scale. Users faced slow load times, confusing navigation, and limited automation for community management.",
     solution:
-      'We rebuilt the entire platform from the ground up with a focus on performance, scalability, and user experience. Implemented automated workflows, Discord integration, and a modern design system aligned with gaming culture.',
+      'We re-architected the platform with a focus on scalability, performance, and operational reliability. This included backend optimization, real-time automation, Discord system integrations, and a modular architecture capable of supporting rapid community growth without performance degradation.',
     results: [
-      '250% increase in user engagement',
-      '3x faster page load times',
-      '60% reduction in support tickets',
-      '50K+ concurrent users supported',
+      {
+        stat: '250%',
+        label: 'Increase in User Engagement',
+      },
+      {
+        stat: '3×',
+        label: 'Faster Page Load Times',
+      },
+      {
+        stat: '60%',
+        label: 'Reduction in Support Tickets',
+      },
+      {
+        stat: '50K+',
+        label: 'Concurrent Users Supported',
+      },
     ],
+    myRoleHeading: 'My Role',
+    myRoleDescription:
+      'System architecture, backend development, scalability planning, automation workflows, Discord integrations, performance optimization, and production deployment.',
   },
   {
     id: 'yukio',
@@ -54,9 +94,29 @@ export const projects = [
     year: '2024',
     client: 'YUKIO',
     services: ['Web Development', 'UI/UX Design', 'Performance Optimization'],
-    technologies: ['Next.js', 'Three.js', 'Framer Motion', 'TypeScript'],
+    technologies: [
+      {
+        name: 'Next.js',
+        usedFor: 'Frontend Layer',
+      },
+      {
+        name: 'Three.js',
+        usedFor: '3D Graphics Library',
+      },
+      {
+        name: 'Framer Motion',
+        usedFor: 'Animation Library',
+      },
+      {
+        name: 'TypeScript',
+        usedFor: 'Type Safety',
+      },
+    ],
     url: 'https://yukio.io',
     featured: true,
+    keyResultsHeading: 'Key Results & Impact',
+    keyResultsDescription:
+      'Measured improvements delivered through system redesign',
     highlights: [
       'Futuristic UI with smooth animations and transitions',
       'Optimized load times (1.2s average)',
@@ -70,11 +130,26 @@ export const projects = [
     solution:
       'We designed and built a futuristic interface with subtle 3D elements, smooth animations, and a comprehensive design system. Every aspect was optimized for performance without compromising visual appeal.',
     results: [
-      '95+ Lighthouse performance score',
-      '1.2s average page load time',
-      '180% increase in time on site',
-      '45% increase in conversion rate',
+      {
+        stat: '95+',
+        label: 'Lighthouse Performance Score',
+      },
+      {
+        stat: '1.2s',
+        label: 'Average Page Load Time',
+      },
+      {
+        stat: '180%',
+        label: 'Increase in Time on Site',
+      },
+      {
+        stat: '45%',
+        label: 'Increase in Conversion Rate',
+      },
     ],
+    myRoleHeading: 'My Role',
+    myRoleDescription:
+      'System architecture, backend development, scalability planning, automation workflows, Discord integrations, performance optimization, and production deployment.',
   },
   {
     id: 'moenumbers',
@@ -92,7 +167,24 @@ export const projects = [
     year: '2024',
     client: 'MoeNumbers',
     services: ['Web Development', 'E-commerce', 'Payment Integration'],
-    technologies: ['Next.js', 'PostgreSQL', 'Stripe', 'Twilio API'],
+    technologies: [
+      {
+        name: 'Next.js',
+        usedFor: 'Frontend Layer',
+      },
+      {
+        name: 'PostgreSQL',
+        usedFor: 'Primary Data Layer',
+      },
+      {
+        name: 'Stripe',
+        usedFor: 'Payment Processing',
+      },
+      {
+        name: 'Twilio API',
+        usedFor: 'SMS and Voice Integration',
+      },
+    ],
     url: 'https://moenumbers.com',
     featured: true,
     highlights: [
@@ -111,11 +203,27 @@ export const projects = [
     keyResultsDescription:
       'Measured improvements delivered through system redesign',
     results: [
-      '85% reduction in checkout abandonment',
-      '220% increase in daily transactions',
-      '4.8/5 average customer rating',
-      '50% faster search performance',
+      // convert to array of objects
+      {
+        stat: '85%',
+        label: 'Reduction in Checkout Abandonment',
+      },
+      {
+        stat: '220%',
+        label: 'Increase in Daily Transactions',
+      },
+      {
+        stat: '4.8/5',
+        label: 'Average Customer Rating',
+      },
+      {
+        stat: '50%',
+        label: 'Faster Search Performance',
+      },
     ],
+    myRoleHeading: 'My Role',
+    myRoleDescription:
+      'System architecture, backend development, performance optimization, payment integration, and end-to-end deployment.',
   },
   // {
   //   id: 'trading-dashboard',

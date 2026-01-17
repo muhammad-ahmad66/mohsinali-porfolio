@@ -161,13 +161,6 @@ export default async function ProjectPage({ params }: Props) {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {project.results.map((result, index) => {
-              // const match = result.match(/^([\d+%x]+)/);
-              // const number = match ? match[1] : '';
-              // const text = result.replace(/^[\d+%x]+\s*/, '');
-              const match = result.match(/^([\d+%\./x]+)\s*/);
-              const number = match ? match[1] : '';
-              const text = result.replace(/^[\d+%\./x]+\s*/, '');
-
               return (
                 <div
                   key={index}
@@ -178,14 +171,12 @@ export default async function ProjectPage({ params }: Props) {
                     <TrendingUp className="h-6 w-6" />
                   </div>
 
-                  {/* Number */}
                   <div className="mb-2 text-4xl font-bold text-primary-600 dark:text-primary-400">
-                    {number}
+                    {result.stat}
                   </div>
 
-                  {/* Text */}
                   <div className="text-sm font-medium text-muted-foreground">
-                    {text}
+                    {result.label}
                   </div>
 
                   {/* Decorative element */}
@@ -243,7 +234,10 @@ export default async function ProjectPage({ params }: Props) {
                         key={index}
                         className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-foreground shadow-sm"
                       >
-                        {tech}
+                        {tech.name} -{' '}
+                        <span className="text-xs text-muted-foreground">
+                          {tech.usedFor}
+                        </span>
                       </span>
                     ))}
                   </div>
@@ -255,12 +249,12 @@ export default async function ProjectPage({ params }: Props) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-400">
                       <User className="h-5 w-5" />
                     </div>
-                    <h3 className="text-xl font-bold">My Role</h3>
+                    <h3 className="text-xl font-bold">
+                      {project.myRoleHeading}
+                    </h3>
                   </div>
                   <p className="text-base leading-relaxed text-muted-foreground">
-                    System architecture, backend development, performance
-                    optimization, payment integration, and end-to-end
-                    deployment.
+                    {project.myRoleDescription}
                   </p>
                 </div>
               </div>
