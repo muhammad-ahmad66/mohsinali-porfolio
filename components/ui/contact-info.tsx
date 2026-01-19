@@ -22,10 +22,10 @@ export function ContactInfo() {
   return (
     <div className="space-y-6">
       {/* Email Card */}
-      <Card className="transition-all">
+      <Card className="border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-secondary-50 transition-all hover:shadow-lg dark:border-primary-800 dark:from-primary-950/50 dark:to-secondary-950/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white">
               <Mail className="h-5 w-5" />
             </div>
             Email
@@ -50,10 +50,10 @@ export function ContactInfo() {
       </Card>
 
       {/* Phone Card */}
-      <Card className="transition-all">
+      <Card className="border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-secondary-50 transition-all hover:shadow-lg dark:border-primary-800 dark:from-primary-950/50 dark:to-secondary-950/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-3 text-lg">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary-100 text-secondary-600 dark:bg-secondary-950 dark:text-secondary-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white">
               <Phone className="h-5 w-5" />
             </div>
             Phone
@@ -66,11 +66,7 @@ export function ContactInfo() {
           >
             {formattedPhoneNumber}
           </a>
-          {/* <p className="mt-2 text-sm text-muted-foreground">
-            US-based inquiries.
-            <br />
-            International clients: WhatsApp or scheduled call.
-          </p> */}
+
           <p className="mt-2 text-sm text-muted-foreground">
             US-based inquiries.
             <br />

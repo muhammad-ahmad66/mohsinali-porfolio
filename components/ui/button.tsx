@@ -252,7 +252,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               <Icon className={iconSizes[size]} />
             )}
 
-            <span className="relative">{children}</span>
+            <span className="relative flex items-center justify-center gap-1.5">
+              {children}
+            </span>
 
             {!loading && Icon && iconPosition === 'right' && (
               <Icon className={iconSizes[size]} />

@@ -14,7 +14,7 @@ export const projects: Project[] = [
     imageUrl: '/images/projects/kry-clients.webp',
     tags: ['UX Design', 'Backend', 'Automation', 'Community'],
     category: 'Web Development',
-    year: '2024',
+    year: '2019',
     client: 'KRY',
     services: ['Web Development', 'UX Design', 'Backend Development'],
     technologies: [
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     imageUrl: '/images/projects/yukio-project-ss.webp',
     tags: ['UI/UX', 'Performance', 'Design System', 'Animation'],
     category: 'Web Design',
-    year: '2024',
+    year: '2020',
     client: 'YUKIO',
     services: ['Web Development', 'UI/UX Design', 'Performance Optimization'],
     technologies: [
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     imageUrl: '/images/projects/moe-numbers-project-ss.webp',
     tags: ['E-commerce', 'UI/UX', 'Conversion', 'Payment Integration'],
     category: 'E-commerce',
-    year: '2024',
+    year: '2023',
     client: 'MoeNumbers',
     services: ['Web Development', 'E-commerce', 'Payment Integration'],
     technologies: [

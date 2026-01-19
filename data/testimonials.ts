@@ -2,38 +2,35 @@
 export const testimonials = [
   {
     id: '1',
-    name: 'Alex Thompson',
+    name: 'Alex T',
     role: 'CEO',
-    company: 'KRY Clients',
+    company: 'Technology Services Company',
     avatar: null,
     rating: 5,
     content:
-      'Working with Mohsin transformed our entire platform. The new design is sleek, performance has tripled, and our community engagement is through the roof. His attention to detail and technical expertise are unmatched.',
-    project: 'KRY Clients Platform',
+      'Working with Mohsin completely transformed our platform. The new design is sleek, performance improved significantly, and overall user engagement increased rapidly. His attention to detail and technical expertise truly stand out.',
     featured: true,
   },
   {
     id: '2',
-    name: 'Sarah Chen',
+    name: 'Sarah C',
     role: 'Founder',
-    company: 'YUKIO',
+    company: 'Digital Product Startup',
     avatar: null,
     rating: 5,
     content:
-      'Mohsin delivered exactly what we envisioned—and more. The futuristic design perfectly captures our brand, and the performance optimization is incredible. Our bounce rate dropped by 40% within the first month.',
-    project: 'YUKIO Website',
+      'Mohsin delivered exactly what we envisioned—and more. The modern design perfectly aligned with our brand, and the performance optimization made a noticeable impact within weeks.',
     featured: true,
   },
   {
     id: '3',
-    name: 'Marcus Rodriguez',
+    name: 'Marcus R',
     role: 'CTO',
-    company: 'MoeNumbers',
+    company: 'E-Commerce Technology Company',
     avatar: null,
     rating: 5,
     content:
-      "The e-commerce platform Mohsin built for us exceeded all expectations. Our conversion rate increased by 85%, and customers love the seamless checkout experience. Best investment we've made.",
-    project: 'MoeNumbers Marketplace',
+      'The e-commerce platform Mohsin built exceeded our expectations. Our conversion rate increased substantially, and customers consistently praise the seamless checkout experience.',
     featured: true,
   },
   {

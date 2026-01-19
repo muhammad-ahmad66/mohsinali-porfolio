@@ -48,7 +48,7 @@ export default function Footer() {
               </p>
 
               {/* Testimonial Card */}
-              <div className="group relative mt-8 overflow-hidden rounded-lg border border-border/50 bg-gradient-to-br from-background via-background to-muted/30 p-6 transition-all duration-300 hover:border-primary-600/30 hover:shadow-lg hover:shadow-primary-600/5">
+              {/* <div className="group relative mt-8 overflow-hidden rounded-lg border border-border/50 bg-gradient-to-br from-background via-background to-muted/30 p-6 transition-all duration-300 hover:border-primary-600/30 hover:shadow-lg hover:shadow-primary-600/5">
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary-600/5 blur-2xl transition-all duration-300 group-hover:bg-primary-600/10" />
                 <div className="relative">
                   <svg
@@ -65,7 +65,7 @@ export default function Footer() {
                     — SaaS Founder, USA
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* What I Do Card */}
               <div className="mt-6 rounded-lg border border-border/50 bg-muted/30 p-6 backdrop-blur-sm">

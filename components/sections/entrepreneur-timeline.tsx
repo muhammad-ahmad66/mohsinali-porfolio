@@ -97,19 +97,19 @@ export default function EntrepreneurTimeline() {
                 size="sm"
                 onClick={() => scroll('left')}
                 disabled={!canScrollLeft}
-                className="gap-2"
+                className="flex flex-row gap-2"
               >
                 <ChevronLeft className="h-4 w-4" />
-                Previous
+                <p>Previous</p>
               </Button>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => scroll('right')}
                 disabled={!canScrollRight}
-                className="gap-2"
+                className="gap flex flex-row gap-2"
               >
-                Next
+                <p>Next</p>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>

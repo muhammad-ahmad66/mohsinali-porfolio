@@ -71,7 +71,7 @@ export default function Testimonials({
                       {testimonial.name}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {testimonial.role} at {testimonial.company}
+                      {testimonial.role}, {testimonial.company}
                     </div>
                   </div>
                 </div>
