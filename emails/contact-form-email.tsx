@@ -18,6 +18,7 @@ import * as React from 'react';
 interface ContactFormEmailProps {
   name: string;
   email: string;
+  phone?: string;
   projectType: string;
   budget?: string;
   message: string;
@@ -26,6 +27,7 @@ interface ContactFormEmailProps {
 export const ContactFormEmail = ({
   name,
   email,
+  phone,
   projectType,
   budget,
   message,
@@ -79,6 +81,16 @@ export const ContactFormEmail = ({
                     </Link>
                   </td>
                 </tr>
+                {phone && (
+                  <tr>
+                    <td style={infoLabel}>Phone:</td>
+                    <td style={infoValue}>
+                      <Link href={`tel:${phone}`} style={link}>
+                        {phone}
+                      </Link>
+                    </td>
+                  </tr>
+                )}
                 <tr>
                   <td style={infoLabel}>Project Type:</td>
                   <td style={infoValue}>{projectType}</td>
