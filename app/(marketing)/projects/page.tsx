@@ -7,6 +7,14 @@ import ProjectCard from '@/components/cards/project-card';
 import { Sparkles, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 import CTA from '@/components/sections/cta';
+import { Metadata } from 'next';
+
+// Add Metadata
+// export const metadata: Metadata = {
+//   title: 'Case Studies & Projects | Scalable Systems by Mohsin Ali Aziz',
+//   description:
+//     'Explore real-world projects including SaaS platforms, AI systems, automation tools, and performance-driven web applications built for scale.',
+// };
 
 export default function ProjectsPage() {
   const [visibleCount, setVisibleCount] = useState(6);

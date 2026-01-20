@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/container';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Shield, Mail } from 'lucide-react';
+import { LegalHeading } from '@/components/ui/legal-heading';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Mohsin Ali Aziz',
@@ -58,10 +59,12 @@ export default function PrivacyPolicyPage() {
 
             {/* Information We Collect */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
+              {/* <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
+                <span className="h-1 w-8 rounded-full bg-secondary-600" />
                 Information We Collect
-              </h2>
+              </h2> */}
+
+              <LegalHeading>Information We Collect</LegalHeading>
               <p className="mb-4 text-muted-foreground">We may collect:</p>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-3">
@@ -93,10 +96,7 @@ export default function PrivacyPolicyPage() {
 
             {/* How We Use Your Information */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                How We Use Your Information
-              </h2>
+              <LegalHeading>How We Use Your Information</LegalHeading>
               <p className="mb-4 text-muted-foreground">
                 Your information is used to:
               </p>
@@ -131,10 +131,7 @@ export default function PrivacyPolicyPage() {
 
             {/* Sharing of Information */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Sharing of Information
-              </h2>
+              <LegalHeading>Sharing of Information</LegalHeading>
               <p className="mb-4 text-muted-foreground">
                 We may share information with trusted service providers for:
               </p>
@@ -159,10 +156,7 @@ export default function PrivacyPolicyPage() {
 
             {/* California Privacy Rights */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                California Privacy Rights (CCPA)
-              </h2>
+              <LegalHeading>California Privacy Rights (CCPA)</LegalHeading>
               <p className="mb-4 text-muted-foreground">
                 If you are a California resident, you have the right to:
               </p>
@@ -200,10 +194,7 @@ export default function PrivacyPolicyPage() {
 
             {/* Data Security */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Data Security
-              </h2>
+              <LegalHeading>Data Security</LegalHeading>
               <p className="text-muted-foreground">
                 Reasonable administrative, technical, and physical safeguards
                 are used to protect your data. However, no system is completely
@@ -213,10 +204,7 @@ export default function PrivacyPolicyPage() {
 
             {/* Changes to This Policy */}
             <section>
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Changes to This Policy
-              </h2>
+              <LegalHeading>Changes to This Policy</LegalHeading>
               <p className="text-muted-foreground">
                 We may update this Privacy Policy from time to time. Updates
                 will be posted on this page.

@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/container';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, FileText, Mail } from 'lucide-react';
+import { LegalHeading } from '@/components/ui/legal-heading';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Mohsin Ali Aziz',
@@ -56,10 +57,8 @@ export default function TermsOfServicePage() {
 
             {/* Website Use */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Website Use
-              </h2>
+              <LegalHeading>Website Use</LegalHeading>
+
               <p className="text-muted-foreground">
                 This website is provided for informational and professional
                 purposes only. You agree not to misuse or attempt to disrupt the
@@ -69,10 +68,7 @@ export default function TermsOfServicePage() {
 
             {/* No Professional Guarantee */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                No Professional Guarantee
-              </h2>
+              <LegalHeading>No Professional Guarantee</LegalHeading>
               <p className="text-muted-foreground">
                 Content on this website does not constitute legal, financial, or
                 investment advice. Any services discussed are subject to
@@ -82,10 +78,7 @@ export default function TermsOfServicePage() {
 
             {/* Intellectual Property */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Intellectual Property
-              </h2>
+              <LegalHeading>Intellectual Property</LegalHeading>
               <p className="text-muted-foreground">
                 All content on this website—including text, branding, visuals,
                 system descriptions, and code—is the intellectual property of
@@ -96,10 +89,7 @@ export default function TermsOfServicePage() {
 
             {/* Limitation of Liability */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Limitation of Liability
-              </h2>
+              <LegalHeading>Limitation of Liability</LegalHeading>
               <p className="mb-4 text-muted-foreground">
                 To the fullest extent permitted by U.S. law, Mohsin Ali Aziz is
                 not liable for:
@@ -127,10 +117,7 @@ export default function TermsOfServicePage() {
 
             {/* External Links */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                External Links
-              </h2>
+              <LegalHeading>External Links</LegalHeading>
               <p className="text-muted-foreground">
                 This website may include links to third-party sites. We are not
                 responsible for their content or practices.
@@ -139,10 +126,7 @@ export default function TermsOfServicePage() {
 
             {/* Termination */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Termination
-              </h2>
+              <LegalHeading>Termination</LegalHeading>
               <p className="text-muted-foreground">
                 We reserve the right to restrict or terminate access if these
                 terms are violated.
@@ -151,10 +135,7 @@ export default function TermsOfServicePage() {
 
             {/* Governing Law */}
             <section>
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Governing Law
-              </h2>
+              <LegalHeading>Governing Law</LegalHeading>
               <p className="text-muted-foreground">
                 These Terms are governed by the laws of the United States,
                 without regard to conflict of law principles.

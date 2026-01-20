@@ -125,7 +125,7 @@ export function ContactInfo() {
       </Card>
 
       {/* Social Links Card */}
-      <Card className="transition-all">
+      <Card className="border-2 border-primary-200 bg-gradient-to-br from-primary-50 to-secondary-50 transition-all hover:shadow-lg dark:border-primary-800 dark:from-primary-950/50 dark:to-secondary-950/50">
         <CardHeader>
           <CardTitle className="text-lg">Professional Profiles</CardTitle>
           <CardDescription>

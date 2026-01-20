@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/container';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Cookie, Mail } from 'lucide-react';
+import { LegalHeading } from '@/components/ui/legal-heading';
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | Mohsin Ali Aziz',
@@ -56,10 +57,12 @@ export default function CookiePolicyPage() {
 
             {/* What Are Cookies */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
+              <LegalHeading>I What Are Cookies?</LegalHeading>
+
+              {/* <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
                 <span className="h-1 w-8 rounded-full bg-primary-600" />
                 What Are Cookies?
-              </h2>
+              </h2> */}
               <p className="text-muted-foreground">
                 Cookies are small data files stored on your device that help
                 improve website functionality and understand user behavior.
@@ -68,10 +71,7 @@ export default function CookiePolicyPage() {
 
             {/* Cookies We Use */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Cookies We Use
-              </h2>
+              <LegalHeading>Cookies We Use</LegalHeading>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary-600" />
@@ -105,10 +105,8 @@ export default function CookiePolicyPage() {
 
             {/* How Cookies Are Used */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                How Cookies Are Used
-              </h2>
+              <LegalHeading>How Cookies Are Used</LegalHeading>
+
               <p className="mb-4 text-muted-foreground">Cookies help us:</p>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-start gap-3">
@@ -128,10 +126,7 @@ export default function CookiePolicyPage() {
 
             {/* Managing Cookies */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Managing Cookies
-              </h2>
+              <LegalHeading>Managing Cookies</LegalHeading>
               <p className="text-muted-foreground">
                 You may control or disable cookies through your browser
                 settings. Disabling cookies may limit site functionality.
@@ -140,10 +135,7 @@ export default function CookiePolicyPage() {
 
             {/* Third-Party Cookies */}
             <section className="mb-12">
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Third-Party Cookies
-              </h2>
+              <LegalHeading>Third-Party Cookies</LegalHeading>
               <p className="text-muted-foreground">
                 Third-party services (e.g., analytics tools) may place cookies.
                 These are governed by their own privacy policies.
@@ -152,10 +144,8 @@ export default function CookiePolicyPage() {
 
             {/* Policy Updates */}
             <section>
-              <h2 className="mb-4 flex items-center gap-2 text-2xl font-semibold text-foreground">
-                <span className="h-1 w-8 rounded-full bg-primary-600" />
-                Policy Updates
-              </h2>
+              <LegalHeading>Policy Updates</LegalHeading>
+
               <p className="text-muted-foreground">
                 This Cookie Policy may be updated periodically.
               </p>

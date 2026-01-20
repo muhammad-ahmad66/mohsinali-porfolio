@@ -1,15 +1,34 @@
 import { Project } from '@/types/projects';
 
+// MoeNumbers Project
+// Title
+// MoeNumbers Case Study | Scalable E-commerce Platform
+// Description
+// Case study of MoeNumbers — a high-performance digital phone number marketplace optimized for search, instant provisioning, and conversion efficiency.
+// :small_blue_diamond: KRY Clients Project
+// Title
+// KRY Clients Case Study | Gaming Platform at Scale
+// Description
+// How KRY Clients scaled a gaming community platform with high-performance infrastructure, automation, and real-time systems supporting 50K+ users.
+// :small_blue_diamond: YUKIO Project
+// Title
+// YUKIO Case Study | High-Performance Futuristic Web Experience
+// Description
+// A futuristic digital experience built for performance and visual impact — featuring advanced UI, smooth animations, and 95+ Lighthouse scores.
+
 export const projects: Project[] = [
   {
     id: 'kry-clients',
     slug: 'kry-clients',
     title: 'KRY Clients',
+    seoTitle: 'KRY Clients Case Study | Gaming Platform at Scale',
     tagline: 'Gaming Software Community Platform',
     shortDescription:
       'High-performance platform for a fast-growing gaming software community with full UX redesign, scalable backend, and automated workflows.',
     description:
       'KRY Clients needed a complete digital transformation to support their rapidly growing gaming software community. We delivered a high-performance platform with intuitive UX, robust backend infrastructure, and automated workflows that improved user engagement by 250%.',
+    seoDescription:
+      'How KRY Clients scaled a gaming community platform with high-performance infrastructure, automation, and real-time systems supporting 50K+ users.',
     image: '🎮',
     imageUrl: '/images/projects/kry-clients.webp',
     tags: ['UX Design', 'Backend', 'Automation', 'Community'],
@@ -86,6 +105,9 @@ export const projects: Project[] = [
     id: 'yukio',
     slug: 'yukio',
     title: 'YUKIO',
+    seoTitle: 'YUKIO Case Study | High-Performance Futuristic Web Experience',
+    seoDescription:
+      'A futuristic digital experience built for performance and visual impact — featuring advanced UI, smooth animations, and 95+ Lighthouse scores.',
     tagline: 'Futuristic Digital Experience',
     shortDescription:
       'Complete digital experience rebuild with sleek interface, optimized load times, and structured feature dashboards aligned with futuristic aesthetic.',
@@ -162,6 +184,9 @@ export const projects: Project[] = [
     id: 'moenumbers',
     slug: 'moenumbers',
     title: 'MoeNumbers',
+    seoTitle: 'MoeNumbers Case Study | Scalable E-commerce Platform',
+    seoDescription:
+      'Case study of MoeNumbers — a high-performance digital phone number marketplace optimized for search, instant provisioning, and conversion efficiency.',
     tagline: 'Digital Phone Number Marketplace',
     shortDescription:
       'High-performance platform for digital phone numbers with seamless UX, modern UI, and streamlined purchase flow for better conversions.',

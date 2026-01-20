@@ -14,11 +14,15 @@ export interface Project {
   id: string;
   slug: string;
   title: string;
+  seoTitle?: string;
   tagline: string;
   shortDescription: string;
+  seoDescription?: string;
+  keywords?: string[];
   description: string;
   image: string;
   imageUrl: string;
+  ogImage?: string;
   tags: string[];
   category: string;
   year: string;
@@ -35,6 +39,7 @@ export interface Project {
   results: ProjectResult[];
   myRoleHeading: string;
   myRoleDescription: string;
+  date?: string;
 
   ctaHeading?: string;
   ctaDescription?: string;

@@ -7,9 +7,9 @@ import type { Metadata } from 'next';
 import { ContactCardModal } from '@/components/ui/contact-card-modal';
 
 export const metadata: Metadata = {
-  title: 'Contact | Mohsin Ali Aziz',
+  title: 'Contact Mohsin Ali Aziz | Start Your Project',
   description:
-    'Get in touch to discuss your project and explore how we can work together.',
+    'Discuss your project with Mohsin Ali Aziz. AI systems, automation, SaaS platforms, and scalable software engineering for global businesses.',
 };
 
 export default function ContactPage() {

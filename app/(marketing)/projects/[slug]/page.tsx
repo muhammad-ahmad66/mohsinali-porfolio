@@ -30,13 +30,45 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!project) {
     return {
-      title: 'Project Not Found',
+      title: 'Project Not Found | Mohsin Ali Aziz',
     };
   }
 
+  // Get OG image from project data or use default
+  const ogImage = project.ogImage || '/images/logos/og-image.png';
+
   return {
-    title: `${project.title} | Mohsin Ali Aziz`,
-    description: project.description,
+    title: project.seoTitle || `${project.title} Case Study | Mohsin Ali Aziz`,
+    description: project.seoDescription || project.description,
+    keywords: project.keywords?.join(', ') || '',
+    openGraph: {
+      title: project.seoTitle || `${project.title} | Mohsin Ali Aziz`,
+      description: project.seoDescription || project.description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} - Mohsin Ali Aziz`,
+        },
+      ],
+      type: 'article',
+      publishedTime: project.date,
+      authors: ['Mohsin Ali Aziz'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.seoTitle || `${project.title} | Mohsin Ali Aziz`,
+      description: project.seoDescription || project.description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

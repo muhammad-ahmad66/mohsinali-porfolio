@@ -42,10 +42,10 @@ export default function Footer() {
                 <div className="mt-1 h-0.5 w-0 bg-primary-600 transition-all duration-300 group-hover:w-full" />
               </Link>
 
-              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              {/* <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                 Designing and engineering premium digital solutions for global
                 businesses.
-              </p>
+              </p> */}
 
               {/* Testimonial Card */}
               {/* <div className="group relative mt-8 overflow-hidden rounded-lg border border-border/50 bg-gradient-to-br from-background via-background to-muted/30 p-6 transition-all duration-300 hover:border-primary-600/30 hover:shadow-lg hover:shadow-primary-600/5">
@@ -127,7 +127,7 @@ export default function Footer() {
               </p>
 
               {/* Contact Links */}
-              <div className="space-y-4">
+              <div className="space-y-4 rounded-lg border border-border bg-muted/30 p-3 backdrop-blur-sm">
                 <a
                   href={emailLink?.href}
                   className="group flex items-center gap-3 rounded-lg p-3 transition-all hover:bg-muted/50"
@@ -154,7 +154,7 @@ export default function Footer() {
               </div>
 
               {/* Schedule Call Button */}
-              <Button
+              {/* <Button
                 variant="outline"
                 size="sm"
                 icon={Calendar1Icon}
@@ -169,7 +169,7 @@ export default function Footer() {
                 >
                   Schedule a Call
                 </Link>
-              </Button>
+              </Button> */}
 
               {/* Social Links */}
               <div className="mt-6 flex gap-3">
