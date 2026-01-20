@@ -209,7 +209,7 @@ export default function Footer() {
                   © {currentYear} Mohsin Ali Aziz. All rights reserved.
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground/70">
-                  Digital Systems & Software Engineering
+                  Engineering scalable systems for the modern web
                 </p>
               </div>
 

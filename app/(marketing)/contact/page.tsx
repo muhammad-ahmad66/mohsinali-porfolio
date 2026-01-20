@@ -56,10 +56,12 @@ export default function ContactPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-3 lg:gap-16">
             {/* Contact Info Sidebar */}
-            <ContactInfo />
+            <div className="order-2 lg:order-1">
+              <ContactInfo />
+            </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-2">
+            <div className="order-1 lg:order-2 lg:col-span-2">
               <ContactForm />
             </div>
           </div>
