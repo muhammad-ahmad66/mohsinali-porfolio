@@ -87,9 +87,7 @@ export default function Footer() {
                 className="mt-6"
                 showArrowOnHover={true}
               >
-                <Link href={ctaData.buttons.primary.href}>
-                  Discuss Your Project
-                </Link>
+                <Link href="/contact">Discuss Your Project</Link>
               </Button>
             </div>
 
