@@ -157,7 +157,7 @@ END:VCARD`;
             </button>
 
             {/* Card */}
-            <div className="dark:via-gray-850 relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900">
+            <div className="dark:via-gray-850 relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gradient-to-br dark:from-primary-950 dark:to-primary-900">
               {/* Decorative gradient header */}
               <div className="relative h-32 overflow-hidden bg-gradient-to-br from-[#082d25] via-[#0a3d32] to-[#082d25]">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-40"></div>
@@ -210,24 +210,6 @@ END:VCARD`;
                   <p className="text-xs font-medium leading-relaxed text-[#082d25] dark:text-[#e5ff22]">
                     {contactInfo.tagline}
                   </p>
-                </div>
-
-                {/* Contact buttons */}
-                <div className="mb-6 grid grid-cols-2 gap-3">
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700 transition-all hover:bg-[#082d25] hover:text-white dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-[#082d25] dark:hover:text-white"
-                  >
-                    <Mail className="h-4 w-4" />
-                    <span className="text-sm font-medium">Email</span>
-                  </a>
-                  <a
-                    href={`tel:${contactInfo.phone}`}
-                    className="flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700 transition-all hover:bg-[#082d25] hover:text-white dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-[#082d25] dark:hover:text-white"
-                  >
-                    <Phone className="h-4 w-4" />
-                    <span className="text-sm font-medium">Call</span>
-                  </a>
                 </div>
 
                 {/* Info grid */}

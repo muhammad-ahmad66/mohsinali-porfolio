@@ -65,31 +65,52 @@ export function Toast({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
       className={cn(
-        'pointer-events-auto relative flex w-full max-w-md items-start gap-3 overflow-hidden rounded-xl border p-4 shadow-lg backdrop-blur-sm',
+        // Responsive width with proper breakpoints
+        'pointer-events-auto relative flex w-[calc(100vw-2rem)] max-w-md items-start gap-3 overflow-hidden rounded-xl border p-4 shadow-lg backdrop-blur-sm',
+        // Safe area padding for iOS and mobile devices
+        'mx-4 sm:mx-0',
+        // Ensure proper positioning in parent container
+        'max-h-[90vh] overflow-y-auto',
         config.bg,
         config.border
       )}
+      // Prevent zoom on mobile when toast appears
+      style={{
+        WebkitTextSizeAdjust: '100%',
+        touchAction: 'manipulation',
+      }}
     >
       {/* Icon */}
       <Icon className={cn('mt-0.5 h-5 w-5 flex-shrink-0', config.iconColor)} />
 
-      {/* Content */}
-      <div className="flex-1 space-y-1">
-        <p className={cn('text-sm font-semibold', config.titleColor)}>
+      {/* Content - allows text wrapping */}
+      <div className="min-w-0 flex-1 space-y-1 break-words">
+        <p
+          className={cn('break-words text-sm font-semibold', config.titleColor)}
+        >
           {title}
         </p>
         {description && (
-          <p className={cn('text-sm', config.descColor)}>{description}</p>
+          <p
+            className={cn(
+              'overflow-wrap-anywhere break-words text-sm',
+              config.descColor
+            )}
+          >
+            {description}
+          </p>
         )}
       </div>
 
-      {/* Close Button */}
+      {/* Close Button - ensure it's always accessible */}
       <button
         onClick={onClose}
         className={cn(
           'flex-shrink-0 rounded-lg p-1 transition-colors hover:bg-black/5 dark:hover:bg-white/5',
+          'flex min-h-[2rem] min-w-[2rem] items-center justify-center',
           config.iconColor
         )}
+        aria-label="Close notification"
       >
         <X className="h-4 w-4" />
       </button>
