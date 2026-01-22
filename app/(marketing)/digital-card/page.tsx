@@ -1,5 +1,5 @@
 // app/card/page.tsx
-import DigitalBusinessCard from '@/components/sections/digital-business-card';
+import { BusinessCard } from '@/components/ui/business-card';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function CardPage() {
-  return <DigitalBusinessCard />;
+  return (
+    <div className="mx-auto my-16 max-w-md px-4">
+      <BusinessCard showShareButton={true} />
+    </div>
+  );
 }

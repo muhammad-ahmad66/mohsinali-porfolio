@@ -8,21 +8,33 @@ import GoogleAnalytics from '@/components/shared/google-analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const baseUrl = 'https://mohsinaliaziz.com';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mohsinaliaziz.com'),
+  metadataBase: new URL(baseUrl),
   title: 'Mohsin Ali Aziz | AI Engineer & Scalable Software Systems',
   description:
     'Mohsin Ali Aziz is an AI Engineer and software systems architect specializing in scalable platforms, automation, SaaS, and performance-driven digital solutions for global businesses.',
   keywords:
     'AI Engineer, Software Architect, Automation Systems, SaaS Development, Scalable Systems, Web Platforms, Performance Optimization',
-  robots:
-    'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
     type: 'website',
     siteName: 'Mohsin Ali Aziz',
     title: 'AI Engineer & Scalable Software Systems | Mohsin Ali Aziz',
     description:
       'Designing and engineering intelligent, scalable software systems for global businesses.',
+    url: baseUrl, // Added this missing property
     images: [
       {
         url: '/images/logos/og-image.png',
@@ -40,7 +52,7 @@ export const metadata: Metadata = {
     images: ['/images/logos/og-image.png'],
   },
   alternates: {
-    canonical: '/',
+    canonical: baseUrl,
   },
   // Add this icons configuration
   icons: {
@@ -68,6 +80,38 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Add canonical tag explicitly for better compatibility */}
+        <link rel="canonical" href={baseUrl} />
+
+        {/* Add explicit meta robots tag as requested */}
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+
+        {/* Add Open Graph meta tags explicitly for better compatibility */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Mohsin Ali Aziz" />
+        <meta
+          property="og:title"
+          content="AI Engineer & Scalable Software Systems | Mohsin Ali Aziz"
+        />
+        <meta
+          property="og:description"
+          content="Designing and engineering intelligent, scalable software systems for global businesses."
+        />
+        <meta
+          property="og:image"
+          content={`${baseUrl}/images/logos/og-image.png`}
+        />
+        <meta property="og:url" content={baseUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Mohsin Ali Aziz - AI Engineer & Scalable Software Systems"
+        />
+
         {/* Manual links for better compatibility */}
         <link rel="icon" href="/images/logos/favicons/favicon.ico" />
         <link
