@@ -86,6 +86,7 @@ export default function Footer() {
                 size="md"
                 className="mt-6"
                 showArrowOnHover={true}
+                asChild={true}
               >
                 <Link href="/contact">Discuss Your Project</Link>
               </Button>
