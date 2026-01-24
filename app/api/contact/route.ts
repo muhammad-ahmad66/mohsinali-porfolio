@@ -47,9 +47,9 @@ export async function POST(request: NextRequest) {
 
     console.log('Attempting to send email...');
 
-    // Send email
+    // Send email - FIXED: Use send subdomain
     const { data, error } = await resend.emails.send({
-      from: 'Mohsin Ali Aziz <onboarding@resend.dev>',
+      from: 'Mohsin Ali Aziz <contact@send.mohsinaliaziz.com>',
       to: ['setupmybusinessusa@gmail.com'], // Your email
       replyTo: email, // User's email for easy reply
       subject: `New Contact Form Submission from ${name}`,
