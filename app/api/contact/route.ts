@@ -1,87 +1,116 @@
+// app/api/contact/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { ContactFormEmail } from '@/emails/contact-form-email';
 
 export async function POST(request: NextRequest) {
-  console.log('=== CONTACT API CALLED ===');
-
   try {
-    // Get request body
     const body = await request.json();
-    console.log('Body received:', body);
+    const { name, email, phone, projectType, budget, message } = body;
 
-    const { name, email, projectType, message } = body;
+    console.log('Received form data:', {
+      name,
+      email,
+      phone,
+      projectType,
+      budget,
+      message,
+    });
 
-    // Basic validation
+    // Validate required fields
     if (!name || !email || !projectType || !message) {
-      console.log('Missing fields');
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    // Get API key
-    const apiKey = process.env.RESEND_API_KEY;
-    console.log('API Key exists:', !!apiKey);
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
 
-    if (!apiKey) {
+    // Check if Resend API key is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is not configured');
       return NextResponse.json(
         { error: 'Email service not configured' },
         { status: 500 }
       );
     }
 
-    // Initialize Resend
-    const resend = new Resend(apiKey);
-
     console.log('Attempting to send email...');
 
-    // Send email with onboarding email (guaranteed to work)
+    // Initialize Resend here, inside the try block
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    // Send email
     const { data, error } = await resend.emails.send({
       from: 'Mohsin Ali Aziz <onboarding@resend.dev>',
       to: ['setupmybusinessusa@gmail.com'],
       replyTo: email,
-      subject: `New Contact: ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Project Type:</strong> ${projectType}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+      subject: `New Contact Form Submission from ${name}`,
+      react: ContactFormEmail({
+        name,
+        email,
+        phone: phone || 'Not provided',
+        projectType,
+        budget: budget || 'Not specified',
+        message,
+      }),
       text: `
-Name: ${name}
+New Contact Form Submission
+
+From: ${name}
 Email: ${email}
-Project: ${projectType}
-Message: ${message}
+Phone: ${phone || 'Not provided'}
+Project Type: ${projectType}
+Budget: ${budget || 'Not specified'}
+
+Message:
+${message}
       `,
     });
 
     if (error) {
       console.error('Resend error:', error);
       return NextResponse.json(
-        { error: 'Failed to send email', details: error.message },
+        {
+          error: 'Failed to send email',
+          details: error.message || JSON.stringify(error),
+        },
         { status: 500 }
       );
     }
 
-    console.log('Email sent successfully! ID:', data?.id);
+    console.log('Email sent successfully:', data);
 
     return NextResponse.json(
       {
-        success: true,
-        message: 'Email sent successfully!',
+        message: 'Email sent successfully',
         id: data?.id,
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Unexpected error:', error);
+    console.error('Contact form error:', error);
+
+    // Log the full error for debugging
+    console.error('Full error details:', {
+      name: error instanceof Error ? error.name : 'Unknown',
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
     return NextResponse.json(
       {
         error: 'Internal server error',
-        details: error.message,
+        message:
+          error instanceof Error ? error.message : 'Unknown error occurred',
       },
       { status: 500 }
     );
