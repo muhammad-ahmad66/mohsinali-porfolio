@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: 'AI Engineer & Scalable Software Systems | Mohsin Ali Aziz',
     description:
       'Designing and engineering intelligent, scalable software systems for global businesses.',
-    url: baseUrl, // Added this missing property
+    url: baseUrl,
     images: [
       {
         url: '/images/logos/og-image.png',
@@ -54,7 +54,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
   },
-  // Add this icons configuration
   icons: {
     icon: [
       { url: '/images/logos/favicons/favicon.ico' },
@@ -80,16 +79,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Add canonical tag explicitly for better compatibility */}
+        {/* Keep only essential manual tags that aren't covered by metadata API */}
         <link rel="canonical" href={baseUrl} />
 
-        {/* Add explicit meta robots tag as requested */}
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
+        {/* REMOVED: <meta name="robots" ... /> - This is now handled by metadata API */}
 
-        {/* Add Open Graph meta tags explicitly for better compatibility */}
+        {/* REMOVE these Open Graph tags too - they're also duplicated from metadata API */}
+        {/* 
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Mohsin Ali Aziz" />
         <meta
@@ -111,8 +107,9 @@ export default function RootLayout({
           property="og:image:alt"
           content="Mohsin Ali Aziz - AI Engineer & Scalable Software Systems"
         />
+        */}
 
-        {/* Manual links for better compatibility */}
+        {/* Keep these manual icon links as they're not conflicting */}
         <link rel="icon" href="/images/logos/favicons/favicon.ico" />
         <link
           rel="apple-touch-icon"
