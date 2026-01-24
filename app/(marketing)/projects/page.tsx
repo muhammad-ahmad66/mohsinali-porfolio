@@ -1,31 +1,17 @@
-'use client';
-
 import { Container } from '@/components/ui/container';
-import { Button } from '@/components/ui/button';
 import { projects } from '@/data/projects';
-import ProjectCard from '@/components/cards/project-card';
-import { Sparkles, RefreshCw } from 'lucide-react';
-import { useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import CTA from '@/components/sections/cta';
 import { Metadata } from 'next';
+import ProjectsClient from '@/components/ui/projects-client';
 
-// Add Metadata
-// export const metadata: Metadata = {
-//   title: 'Case Studies & Projects | Scalable Systems by Mohsin Ali Aziz',
-//   description:
-//     'Explore real-world projects including SaaS platforms, AI systems, automation tools, and performance-driven web applications built for scale.',
-// };
+export const metadata: Metadata = {
+  title: 'Case Studies & Projects | Scalable Systems by Mohsin Ali Aziz',
+  description:
+    'Explore real-world projects including SaaS platforms, AI systems, automation tools, and performance-driven web applications built for scale.',
+};
 
 export default function ProjectsPage() {
-  const [visibleCount, setVisibleCount] = useState(6);
-
-  const visibleProjects = projects.slice(0, visibleCount);
-  const hasMore = visibleCount < projects.length;
-
-  const loadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + 6, projects.length));
-  };
-
   return (
     <>
       {/* Hero Section */}
@@ -54,30 +40,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 lg:py-32">
-        <Container>
-          {/* Projects Grid */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {visibleProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-
-          {/* Load More Button */}
-          {hasMore && (
-            <div className="mt-12 text-center">
-              <Button
-                size="lg"
-                variant="outline"
-                icon={RefreshCw}
-                onClick={loadMore}
-              >
-                Load More Projects
-              </Button>
-            </div>
-          )}
-        </Container>
-      </section>
+      <ProjectsClient projects={projects} />
 
       <CTA variant="alternate" />
     </>
