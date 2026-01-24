@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     images: ['/images/logos/og-image.png'],
   },
   alternates: {
-    canonical: baseUrl,
+    canonical: baseUrl, // ← Next.js will generate canonical from this
   },
   icons: {
     icon: [
@@ -79,37 +79,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Keep only essential manual tags that aren't covered by metadata API */}
-        <link rel="canonical" href={baseUrl} />
+        {/* REMOVED: <link rel="canonical" href={baseUrl} /> - Duplicate with metadata.alternates.canonical */}
+        {/* REMOVED: All robots meta tags - Handled by metadata.robots */}
+        {/* REMOVED: All Open Graph meta tags - Handled by metadata.openGraph */}
+        {/* REMOVED: All Twitter meta tags - Handled by metadata.twitter */}
 
-        {/* REMOVED: <meta name="robots" ... /> - This is now handled by metadata API */}
-
-        {/* REMOVE these Open Graph tags too - they're also duplicated from metadata API */}
-        {/* 
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Mohsin Ali Aziz" />
-        <meta
-          property="og:title"
-          content="AI Engineer & Scalable Software Systems | Mohsin Ali Aziz"
-        />
-        <meta
-          property="og:description"
-          content="Designing and engineering intelligent, scalable software systems for global businesses."
-        />
-        <meta
-          property="og:image"
-          content={`${baseUrl}/images/logos/og-image.png`}
-        />
-        <meta property="og:url" content={baseUrl} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Mohsin Ali Aziz - AI Engineer & Scalable Software Systems"
-        />
-        */}
-
-        {/* Keep these manual icon links as they're not conflicting */}
+        {/* Keep only these manual tags that aren't covered by metadata API */}
         <link rel="icon" href="/images/logos/favicons/favicon.ico" />
         <link
           rel="apple-touch-icon"
