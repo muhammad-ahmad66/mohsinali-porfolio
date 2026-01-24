@@ -1,50 +1,89 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-export async function GET() {
-  try {
-    const apiKey = process.env.RESEND_API_KEY;
+export async function POST(request: NextRequest) {
+  console.log('=== CONTACT API CALLED ===');
 
-    if (!apiKey) {
-      return NextResponse.json({
-        success: false,
-        error: 'RESEND_API_KEY not found in environment variables',
-        env: Object.keys(process.env).filter((key) => key.includes('RESEND')),
-      });
+  try {
+    // Get request body
+    const body = await request.json();
+    console.log('Body received:', body);
+
+    const { name, email, projectType, message } = body;
+
+    // Basic validation
+    if (!name || !email || !projectType || !message) {
+      console.log('Missing fields');
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
     }
 
+    // Get API key
+    const apiKey = process.env.RESEND_API_KEY;
+    console.log('API Key exists:', !!apiKey);
+
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: 'Email service not configured' },
+        { status: 500 }
+      );
+    }
+
+    // Initialize Resend
     const resend = new Resend(apiKey);
 
-    // Test sending a simple email
+    console.log('Attempting to send email...');
+
+    // Send email with onboarding email (guaranteed to work)
     const { data, error } = await resend.emails.send({
-      from: 'Test <onboarding@resend.dev>',
+      from: 'Mohsin Ali Aziz <onboarding@resend.dev>',
       to: ['setupmybusinessusa@gmail.com'],
-      subject: 'Test from API',
-      html: '<p>This is a test email from your API</p>',
+      replyTo: email,
+      subject: `New Contact: ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Project Type:</strong> ${projectType}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+      text: `
+Name: ${name}
+Email: ${email}
+Project: ${projectType}
+Message: ${message}
+      `,
     });
 
     if (error) {
-      return NextResponse.json({
-        success: false,
-        error: error.message,
-        errorType: error.name,
-        suggestion: 'Check your API key and domain verification',
-      });
+      console.error('Resend error:', error);
+      return NextResponse.json(
+        { error: 'Failed to send email', details: error.message },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json({
-      success: true,
-      message: 'Test email sent successfully',
-      emailId: data?.id,
-      apiKeyExists: !!apiKey,
-      apiKeyLength: apiKey.length,
-      apiKeyPrefix: apiKey.substring(0, 10) + '...',
-    });
+    console.log('Email sent successfully! ID:', data?.id);
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: 'Email sent successfully!',
+        id: data?.id,
+      },
+      { status: 200 }
+    );
   } catch (error) {
-    return NextResponse.json({
-      success: false,
-      error: error.message,
-      stack: error.stack,
-    });
+    console.error('Unexpected error:', error);
+    return NextResponse.json(
+      {
+        error: 'Internal server error',
+        details: error.message,
+      },
+      { status: 500 }
+    );
   }
 }
