@@ -17,15 +17,18 @@ export const metadata: Metadata = {
     'Mohsin Ali Aziz is an AI Engineer and software systems architect specializing in scalable platforms, automation, SaaS, and performance-driven digital solutions for global businesses.',
   keywords:
     'AI Engineer, Software Architect, Automation Systems, SaaS Development, Scalable Systems, Web Platforms, Performance Optimization',
+  // Use absolute URL for robots with all parameters
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
-      'max-video-preview': -1,
     },
   },
   openGraph: {
@@ -34,10 +37,10 @@ export const metadata: Metadata = {
     title: 'AI Engineer & Scalable Software Systems | Mohsin Ali Aziz',
     description:
       'Designing and engineering intelligent, scalable software systems for global businesses.',
-    url: baseUrl,
+    url: `${baseUrl}/`, // Absolute URL
     images: [
       {
-        url: '/images/logos/og-image.png',
+        url: `${baseUrl}/images/logos/og-image.png`, // Absolute URL
         width: 1200,
         height: 630,
         alt: 'Mohsin Ali Aziz - AI Engineer & Scalable Software Systems',
@@ -49,10 +52,11 @@ export const metadata: Metadata = {
     title: 'AI Engineer & Scalable Software Systems | Mohsin Ali Aziz',
     description:
       'Designing and engineering intelligent, scalable software systems for global businesses.',
-    images: ['/images/logos/og-image.png'],
+    images: [`${baseUrl}/images/logos/og-image.png`], // Absolute URL
   },
+  // Use absolute URL for canonical
   alternates: {
-    canonical: baseUrl, // ← Next.js will generate canonical from this
+    canonical: `${baseUrl}/`,
   },
   icons: {
     icon: [
@@ -79,12 +83,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* REMOVED: <link rel="canonical" href={baseUrl} /> - Duplicate with metadata.alternates.canonical */}
-        {/* REMOVED: All robots meta tags - Handled by metadata.robots */}
-        {/* REMOVED: All Open Graph meta tags - Handled by metadata.openGraph */}
-        {/* REMOVED: All Twitter meta tags - Handled by metadata.twitter */}
-
-        {/* Keep only these manual tags that aren't covered by metadata API */}
         <link rel="icon" href="/images/logos/favicons/favicon.ico" />
         <link
           rel="apple-touch-icon"
@@ -94,6 +92,11 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="UTF-8" />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        ></meta>
+        <link rel="canonical" href="https://mohsinaliaziz.com" />
       </head>
       <body className={inter.className}>
         <GoogleAnalytics />
