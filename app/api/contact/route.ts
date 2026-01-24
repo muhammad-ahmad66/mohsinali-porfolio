@@ -1,6 +1,7 @@
 // app/api/contact/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { render } from '@react-email/render';
 import { ContactFormEmail } from '@/emails/contact-form-email';
 
 export async function POST(request: NextRequest) {
@@ -14,7 +15,6 @@ export async function POST(request: NextRequest) {
       phone,
       projectType,
       budget,
-      message,
     });
 
     // Validate required fields
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if Resend API key is configured
+    // Check API key
     if (!process.env.RESEND_API_KEY) {
       console.error('RESEND_API_KEY is not configured');
       return NextResponse.json(
@@ -43,46 +43,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('Attempting to send email...');
-
-    // Initialize Resend here, inside the try block
     const resend = new Resend(process.env.RESEND_API_KEY);
 
-    // Send email
-    const { data, error } = await resend.emails.send({
-      from: 'Mohsin Ali Aziz <onboarding@resend.dev>',
-      to: ['setupmybusinessusa@gmail.com'],
-      replyTo: email,
-      subject: `New Contact Form Submission from ${name}`,
-      react: ContactFormEmail({
+    console.log('Rendering email template...');
+
+    // Render the email template to HTML - AWAIT the render
+    const emailHtml = await render(
+      ContactFormEmail({
         name,
         email,
-        phone: phone || 'Not provided',
+        phone: phone || '',
         projectType,
-        budget: budget || 'Not specified',
+        budget: budget || '',
         message,
-      }),
-      text: `
-New Contact Form Submission
+      })
+    );
 
-From: ${name}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Project Type: ${projectType}
-Budget: ${budget || 'Not specified'}
+    console.log('Sending email...');
 
-Message:
-${message}
-      `,
+    const { data, error } = await resend.emails.send({
+      from: 'Contact Form <onboarding@resend.dev>',
+      to: ['setupmybusinessusa@gmail.com'],
+      replyTo: email,
+      subject: `New Contact: ${name} - ${projectType}`,
+      html: emailHtml,
     });
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('Resend API error:', error);
       return NextResponse.json(
-        {
-          error: 'Failed to send email',
-          details: error.message || JSON.stringify(error),
-        },
+        { error: 'Failed to send email', details: error.message },
         { status: 500 }
       );
     }
@@ -90,27 +80,15 @@ ${message}
     console.log('Email sent successfully:', data);
 
     return NextResponse.json(
-      {
-        message: 'Email sent successfully',
-        id: data?.id,
-      },
+      { message: 'Email sent successfully', id: data?.id },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Contact form error:', error);
-
-    // Log the full error for debugging
-    console.error('Full error details:', {
-      name: error instanceof Error ? error.name : 'Unknown',
-      message: error instanceof Error ? error.message : String(error),
-      stack: error instanceof Error ? error.stack : undefined,
-    });
-
+    console.error('Unexpected error:', error);
     return NextResponse.json(
       {
         error: 'Internal server error',
-        message:
-          error instanceof Error ? error.message : 'Unknown error occurred',
+        message: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
